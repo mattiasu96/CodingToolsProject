@@ -60,6 +60,5 @@ listener.sockets.on('connection', function(socket){
         socket.emit('message', {'message': data})
     }
     
-    setInterval(function(){socket.emit('message', {'message': 'Bella'})},1000);
     parser.on('data', ReadSerialData);
 });
