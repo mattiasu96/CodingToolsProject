@@ -1,14 +1,19 @@
-// Require the serialport node module
-var SerialPort = require('serialport');
-// Open the port
-var port = new SerialPort("COM3", {
-    baudRate: 115200,
-    parser: new SerialPort.parsers.Readline('\r\n')
+function ReadSerialData(data){
+  console.log(data);
+  //do stuff here
+}
+
+const SerialPort = require('serialport');
+const port = new SerialPort('COM3', () => {
+console.log('Port Opened');
 });
-// Read the port data
-port.on("open", function () {
-    console.log('open');
-    port.on('data', function(data) {
-        console.log(data);
-    });
+const parsers = SerialPort.parsers;
+
+const parser = new parsers.Readline({
+delimiter: '\n'
+
 });
+
+port.pipe(parser);
+
+parser.on('data', ReadSerialData);

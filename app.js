@@ -2,6 +2,17 @@ var http = require("http");
 var url = require('url');
 var fs = require('fs');
 var io = require('socket.io');
+const SerialPort = require('serialport');
+const parsers = SerialPort.parsers;
+
+
+const port = new SerialPort('COM3', () => {
+console.log('Port Opened');
+});
+const parser = new parsers.Readline({
+delimiter: '\n'
+
+});
 
 var server = http.createServer(function(request, response){
     var path = url.parse(request.url).pathname;
@@ -35,11 +46,20 @@ var server = http.createServer(function(request, response){
 });
 
 server.listen(8001);
+port.pipe(parser);
 
 io.listen(server);
 
 var listener = io.listen(server);
+
 listener.sockets.on('connection', function(socket){
    
-    setInterval(function(){socket.emit('message', {'message': 'Bella zio'})},1);
+    function ReadSerialData(data){
+        console.log(data, );
+        //do stuff here
+        socket.emit('message', {'message': data})
+    }
+    
+    setInterval(function(){socket.emit('message', {'message': 'Bella'})},1000);
+    parser.on('data', ReadSerialData);
 });
