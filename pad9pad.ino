@@ -88,8 +88,8 @@ void loop() {
 //      break;
 //    }
 //    if (i < 7)
-//      Serial.print(" ");
-//      Serial.print(updo);
+      Serial.print(" ");
+      Serial.print(updo);
 //      Serial.println();
 //  }
 //  

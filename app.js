@@ -54,11 +54,12 @@ listener.sockets.on('connection', function(socket){
     socket.emit('message', {'message': 'Bella zio'});
 
     function ReadSerialData(data){
+        // NB: A OGNI CARICAMENTO PAGINA CREA UN NUOVO CLIENT E QUINDI SUL CONSOLE LOG DEL SERVER CI SONO MESAGGI DUPLICATI TANTI QUANTI
+        //I CLIENT CREATI
         console.log(data);
-        console.log('Connection');
         //do stuff here
 
-        //socket.emit('message', {'message': data})
+        socket.emit('message', {'message': data})
     }
     
     parser.on('data', ReadSerialData);
