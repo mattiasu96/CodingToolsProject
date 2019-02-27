@@ -6,7 +6,7 @@ const SerialPort = require('serialport');
 const parsers = SerialPort.parsers;
 
 
-const port = new SerialPort('COM3', () => {
+const port = new SerialPort('COM3',{baudRate:115200}, () => {
 console.log('Port Opened');
 });
 const parser = new parsers.Readline({
@@ -45,19 +45,20 @@ var server = http.createServer(function(request, response){
     }
 });
 
-server.listen(8001);
+server.listen(5000);
 port.pipe(parser);
-
-io.listen(server);
-
 var listener = io.listen(server);
 
 listener.sockets.on('connection', function(socket){
-   
+    console.log('1 connection');
+    socket.emit('message', {'message': 'Bella zio'});
+
     function ReadSerialData(data){
-        console.log(data, );
+        console.log(data);
+        console.log('Connection');
         //do stuff here
-        socket.emit('message', {'message': data})
+
+        //socket.emit('message', {'message': data})
     }
     
     parser.on('data', ReadSerialData);

@@ -5,11 +5,12 @@
   <body>
     <script>
         var socket = io.connect();
-        var socket = io.connect();
+        console.log('Client side');
+        
         socket.on('message', function(data){
         console.log(data.message);
         });
     </script>
-    <div>This is our socket.html file</div>
+    <div>Testing page! </div>
   </body>
 </html>
