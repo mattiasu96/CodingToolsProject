@@ -4,7 +4,7 @@
   </head>
   <body>
     <script>
-        var socket = io.connect();
+        var socket = io.connect(); //quando carica l'html mi esegue anche gli script associati. La funzione connect() si aspetta come parametro in input l'indirizzo del server. Se non specificato si collega automaticamente a localhost
         console.log('Client side');
         
         socket.on('message', function(data){
