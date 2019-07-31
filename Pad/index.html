@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" >
-
 <head>
   <meta charset="UTF-8">
   <title>A Pen by  Mattia Surricchio</title>
-  
-  
-  <link rel='stylesheet' href='css/02cbe09766a509e291eb2a444.css'>
+  <link rel='stylesheet' href='02cbe09766a509e291eb2a444.css'>
 <link rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
-
-      <link rel="stylesheet" href="css/style.css">
-
-  
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <html>
+<!-- partial:index.partial.html -->
+<html>
   <head>
+<script src="https://www.jsdelivr.com/package/npm/tonal"></script>
 
   </head>
   
@@ -31,122 +25,181 @@
       <button id="next">
           <img id="play" src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/play-icon-18-256.png" >
       </button>
-      <div id="volume"></div>
-      <div id="note"></div>
+      <div id="oracle">
+<div id="notes">
+  <table id="matrix">
+    <tr>
+      <td><button id="b1"></button></td>
+      <td><button id="b1">2</button></td>
+      <td><button id="b1">2</button></td>
+      <td><button id="b1">2</button></td>
+
+
+    </tr>
+  
+    <tr>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+    </tr>
+    <tr>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+    </tr>
+    <tr>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+    </tr>
+  </table>
+</div>        
+        
+        <div id="chord-selector">
+           <table id="matrix-chord">
+    <tr>
+      <td><button id="b1"></button></td>
+      <td><button id="b1">2</button></td>
+      <td><button id="b1">2</button></td>
+      <td><button id="b1">2</button></td>
+
+
+    </tr>
+  
+    <tr>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+    </tr>
+    <tr>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+    </tr>
+    <tr>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+    </tr>
+              <tr>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+    </tr>
+              <tr>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+      <td><button id="b1">3</button></td>
+      <td><button id="b1">4</button></td>
+    </tr>
+  </table>
+             
+             
+             
+             
+             
+             </div>
+
+        
+      </div>
 
       <div id="pad">
       <ol class="even first">
-        <li class='hex'><div class="note">A</div></li>
-
-    <li class='hex'><div class="note">B</div></li>
-    <li class='hex'><div class="note">C</div></li>
-    <li class='hex'><div class="note">D</div></li>
-    <li class='hex'></li>
-    </ol>  
-  <ol class="odd">
-        <li class='hex'></li>
-
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    
-
-  </ol>
+        <li class='hex' title="C2"><div class="note">C2</div></li>
+        <li class='hex' title="G2"><div class="note">G2</div></li>
+        <li class='hex' title="D3"><div class="note">D3</div></li>
+        <li class='hex' title="A3"><div class="note">A3</div></li>
+        <li class='hex' title="E4"><div class="note">E4</div></li>
+      </ol>  
+      <ol class="odd">
+        <li class='hex' title="A1"><div class="note">A1</div></li>
+        <li class='hex' title="E2"><div class="note">E2</div></li>
+        <li class='hex' title="B2"><div class="note">B2</div></li>
+        <li class='hex' title="Gb3"><div class="note">Gb3</div></li>
+        <li class='hex' title="Db4"><div class="note">Db4</div></li>
+        <li class='hex' title="Ab4"><div class="note">Ab4</div></li>
+      </ol>
       <ol class="even">
-
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-
-  </ol>  
-         <ol class="odd">
-        <li class='hex'></li>
-
-    <li class='hex'><div class="note">nota</div></li>
-    <li class='hex'><div class="note">nota</div></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-
-  </ol>
-          <ol class="even">
-   
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-
-  </ol>  
-          <ol class="odd">
-        <li class='hex'></li>
-
-    <li class='hex'></li>
-    <li class='hex'><div class="note">nota</div></li>
-    <li class='hex'><div class="note">nota</div></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-
-  </ol>
-              <ol class="even">
-   
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-
-  </ol> 
-         <ol class="odd">
-        <li class='hex'></li>
-
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-
-  </ol>
-              <ol class="even">
-   
-    <li class='hex'></li>
-    <li class='hex'><div class="note">nota</div></li>
-    <li class='hex'><div class="note">nota</div></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-
-  </ol> 
-         <ol class="odd">
-        <li class='hex'></li>
-
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-
-  </ol>
-              <ol class="even">
-   
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-
-  </ol> 
-           <ol class="odd">
-        <li class='hex'></li>
-
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
-    <li class='hex'></li>
+        <li class='hex' title="Db2"><div class="note">Db2</div></li>
+        <li class='hex' title="Ab2"><div class="note">Ab2</div></li>
+        <li class='hex' title="Eb3"><div class="note">Eb3</div></li>
+        <li class='hex' title="Bb3"><div class="note">Bb3</div></li>
+        <li class='hex' title="F4"><div class="note">F4</div></li>
+      </ol>  
+      <ol class="odd">
+        <li class='hex' title="Ab1"><div class="note">Ab1</div></li>
+        <li class='hex' title="F2"><div class="note">F2</div></li>
+        <li class='hex' title="C3"><div class="note">C3</div></li>
+        <li class='hex' title="G3"><div class="note">G3</div></li>
+        <li class='hex' title="D4"><div class="note">D4</div></li>
+        <li class='hex' title="A4"><div class="note">A4</div></li>
+      </ol>
+      <ol class="even">
+        <li class='hex' title="D2"><div class="note">D2</div></li>
+        <li class='hex' title="A2"><div class="note">A2</div></li>
+        <li class='hex' title="E3"><div class="note">E3</div></li>
+        <li class='hex' title="B3"><div class="note">B3</div></li>
+        <li class='hex' title="Gb4"><div class="note">Gb4</div></li>
+      </ol>  
+      <ol class="odd">
+        <li class='hex' title="B1"><div class="note">B1</div></li>
+        <li class='hex' title="Gb2"><div class="note">Gb2</div></li>
+        <li class='hex' title="Db3"><div class="note">Db3</div></li>
+        <li class='hex' title="Ab3"><div class="note">Ab3</div></li>
+        <li class='hex' title="Eb4"><div class="note">Eb4</div></li>
+        <li class='hex' title="Bb4"><div class="note">Bb4</div></li>
+      </ol>
+      <ol class="even">
+        <li class='hex' title="Eb2"><div class="note">Eb2</div></li>
+        <li class='hex' title="Bb2"><div class="note">Bb2</div></li>
+        <li class='hex' title="F3"><div class="note">F3</div></li>
+        <li class='hex' title="C4"><div class="note">C4</div></li>
+        <li class='hex' title="G4"><div class="note">G4</div></li>
+      </ol> 
+      <ol class="odd">
+        <li class='hex' title="C2"><div class="note">C2</div></li>
+        <li class='hex' title="G2"><div class="note">G2</div></li>
+        <li class='hex' title="D3"><div class="note">D3</div></li>
+        <li class='hex' title="A3"><div class="note">A3</div></li>
+        <li class='hex' title="E4"><div class="note">E4</div></li>
+        <li class='hex' title="A4"><div class="note">B4</div></li>
+      </ol>
+      <ol class="even">
+        <li class='hex' title="E2"><div class="note">E2</div></li>
+        <li class='hex' title="B2"><div class="note">B2</div></li>
+        <li class='hex' title="Gb3"><div class="note">Gb3</div></li>
+        <li class='hex' title="Db4"><div class="note">Db4</div></li>
+        <li class='hex' title="Ab4"><div class="note">Ab4</div></li>
+      </ol> 
+      <ol class="odd">
+        <li class='hex' title="Db2"><div class="note">Db2</div></li>
+        <li class='hex' title="Ab2"><div class="note">Ab2</div></li>
+        <li class='hex' title="Eb3"><div class="note">Eb3</div></li>
+        <li class='hex' title="Bb3"><div class="note">Bb3</div></li>
+        <li class='hex' title="F4"><div class="note">F4</div></li>
+        <li class='hex' title="C5"><div class="note">C5</div></li>
+      </ol>
+      <ol class="even">
+        <li class='hex' title="F2"><div class="note">F2</div></li>
+        <li class='hex' title="C3"><div class="note">C3</div></li>
+        <li class='hex' title="G3"><div class="note">G3</div></li>
+        <li class='hex' title="D4"><div class="note">D4</div></li>
+        <li class='hex' title="A4"><div class="note">A4</div></li>
+      </ol> 
+      <ol class="odd">
+        <li class='hex' title="D2"><div class="note">D2</div></li>
+        <li class='hex' title="A2"><div class="note">A2</div></li>
+        <li class='hex' title="E3"><div class="note">E3</div></li>
+        <li class='hex' title="B3"><div class="note">B3</div></li>
+        <li class='hex' title="Gb4"><div class="note">Gb4</div></li>
+        <li class='hex' title="Db5"><div class="note">Db5</div></li>
 
   </ol>
         
@@ -159,18 +212,15 @@
   
   </body>
 </html>
-  <script src='js/02cbe09766a509e291eb2a444.js'></script>
+<!-- partial -->
+  <script src='02cbe09766a509e291eb2a444.js'></script>
+        <script src="..\node_modules\tonal\build\transpiled.js"></script>
+
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
-
-  
-
-    <script  src="js/index.js"></script>
-
-
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.9/Tone.min.js'></script>
+<script  src="script.js"></script>
 
 </body>
-
 </html>
