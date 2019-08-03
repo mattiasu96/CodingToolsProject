@@ -77,113 +77,73 @@ lcdRGB.writeRow("lcd1","Kaoss Pad", 0);
 // Generazione synth ------------------------------
 //var synth = new Tone.Synth().toMaster();
 
-var filter = new Tone.AutoFilter(2,40,2.5).toMaster();
-filter.depth=1;
-filter.wet=1;
-filter.filter.rolloff=-48;
-filter.start();
 
-
-
-var synth = new Tone.Synth({
-  oscillator: {
-    type: 'sawtooth',
-    
-  },
-  envelope: {
-    attack: 0.001,
-    decay: 0.1,
-    sustain: 5,
-    release: 0.1
-  }
-}).connect(filter);
-
-var synthB = new Tone.Synth({
-  oscillator: {
-    type: 'sawtooth',
-    detune  : -10 ,
-
-  },
-  envelope: {
-    attack: 0.001,
-    decay: 0.1,
-    sustain: 5,
-    release: 0.1
-  }
-}).connect(filter);
-
-var synthC = new Tone.Synth({
-  oscillator: {
-    type: 'sawtooth',
-    detune  : +10 ,
-
-  },
-  envelope: {
-    attack: 0.001,
-    decay: 0.1,
-    sustain: 5,
-    release: 0.1
-  }
-}).connect(filter);
-
-var synthD = new Tone.Synth({
-  oscillator: {
-    type: 'sawtooth',
-    detune  : -5 ,
-
-  },
-  envelope: {
-    attack: 0.001,
-    decay: 0.1,
-    sustain: 5,
-    release: 0.1
-  }
-}).connect(filter);
-
-var synthE = new Tone.Synth({
-  oscillator: {
-    type: 'sawtooth',
-    detune  : -2 ,
-
-  },
-  envelope: {
-    attack: 0.001,
-    decay: 0.1,
-    sustain: 5,
-    release: 0.1
-  }
-}).connect(filter);
 
 var mode = 0; // 0 = modalità single note, 1 = modalità multiple notes
 
 
 notes = document.querySelectorAll(".hex");
     Tone.context.resume();
+var ac =  new AudioContext();
 
+var play = function () {
+    x =  event.target.title;
+    var mynote;
+    mynote = Tonal.freq(x);
+    console.log(mynote);
+  //prima prende il valore dall'html (ho il value inserito)
+   // var freq = $('#freq').val();
+    var freq = 17;
+ 
+    //var ffreq = $('#ffreq').val();
+    var ffreq = 1000;
+    
+    //var depth = $('#depth').val();
+    var depth = 50;
+
+    
+    //var Q = $('#Q').val();
+    var Q = 0;
+
+    var osc = ac.createOscillator();
+    var lfo = ac.createOscillator();
+    var filter = ac.createBiquadFilter();
+    osc.type = 'square';
+    var amp = ac.createGain();
+    var lfoAmp = ac.createGain();
+    lfo.connect(lfoAmp);
+    lfoAmp.connect(filter.frequency);
+
+    osc.frequency.value = mynote;
+
+    filter.Q.value = Q;
+    filter.frequency.value = ffreq;
+
+    osc.connect(filter);
+    filter.connect(amp);
+    amp.connect(ac.destination);
+
+    lfo.frequency.value = freq / 4;
+    lfoAmp.gain.value = depth / 100 * ffreq;
+
+    amp.gain.setValueAtTime(0, ac.currentTime);
+    amp.gain.linearRampToValueAtTime(1, ac.currentTime + 0.001);
+    amp.gain.setValueAtTime(1, ac.currentTime + 0.3);
+    amp.gain.linearRampToValueAtTime(0, ac.currentTime + 0.5);
+    osc.start(ac.currentTime);
+    osc.stop(ac.currentTime + 100);
+    lfo.start(ac.currentTime);
+    lfo.stop(ac.currentTime + 100);
+};
 
 notes.forEach(function(note) {
-    note.addEventListener("mouseover", function(event){
-    x =  event.target.title;
-    filter.baseFrequency=x;
-    synth.triggerAttack(x);
-    synthB.triggerAttack(x);
-    synthC.triggerAttack(x);
-    synthD.triggerAttack(x);
-    synthE.triggerAttack(x);
-
-
-    });
+    note.addEventListener("mouseover", play);
 });
 
 notes.forEach(function(note) {
     note.addEventListener("mouseout", function(event){
-
     x =  event.target.title;
-    synth.triggerRelease();
-    synthB.triggerRelease();
-    synthC.triggerRelease();
-    synthD.triggerRelease();
-    synthE.triggerRelease();
+    
 
 
     });
