@@ -86,6 +86,9 @@ notes = document.querySelectorAll(".hex");
     Tone.context.resume();
 var ac =  new AudioContext();
 
+//NB questa soluzione in teoria funziona, in pratica mi da errore perchè non posso richiamare start 2 volte sullo stesso elemento (nodo). Una volta che lo stoppo non posso più ristartarlo. Quello che dovrei fare è o re-inserirlo nella funzione play, così ogni volta che è chiamata crea delle variabili locali che poi vengono distrutte, quindi la funzione start e stop lavora su variabili create nuove. Altrimenti invece di stop (se inserisco la definizione di osc e lfo all'esterno della funzione play) uso connect e disconnect.
+var osc = ac.createOscillator();
+var lfo = ac.createOscillator();
 var play = function () {
     x =  event.target.title;
     var mynote;
@@ -105,8 +108,8 @@ var play = function () {
     //var Q = $('#Q').val();
     var Q = 0;
 
-    var osc = ac.createOscillator();
-    var lfo = ac.createOscillator();
+    //var osc = ac.createOscillator();
+    //var lfo = ac.createOscillator();
     var filter = ac.createBiquadFilter();
     osc.type = 'square';
     var amp = ac.createGain();
@@ -125,26 +128,32 @@ var play = function () {
 
     lfo.frequency.value = freq / 4;
     lfoAmp.gain.value = depth / 100 * ffreq;
-
+   
+    //il setValueAtTime praticamente setta a 0 il valore del gain all'istante ac.current time. Cioè inizializza a 0 il gain del mio apm in output
+    //appena legge l'istruzione
     amp.gain.setValueAtTime(0, ac.currentTime);
     amp.gain.linearRampToValueAtTime(1, ac.currentTime + 0.001);
     amp.gain.setValueAtTime(1, ac.currentTime + 0.3);
-    amp.gain.linearRampToValueAtTime(0, ac.currentTime + 0.5);
+    //amp.gain.linearRampToValueAtTime(0, ac.currentTime + 0.5);
     osc.start(ac.currentTime);
-    osc.stop(ac.currentTime + 100);
+   // osc.stop(ac.currentTime + 3);
     lfo.start(ac.currentTime);
-    lfo.stop(ac.currentTime + 100);
+   // lfo.stop(ac.currentTime + 3);
 };
 
 notes.forEach(function(note) {
     note.addEventListener("mouseover", play);
 });
 
+
+// Ho un problema di scope, questa funzione non ha accesso agli osc e lfo dichiarati nella funzione play 
+
+var stop = function () {
+   x =  event.target.title;
+   osc.stop(ac.currentTime);
+   lfo.stop(ac.currentTime); 
+};
+
 notes.forEach(function(note) {
-    note.addEventListener("mouseout", function(event){
-    x =  event.target.title;
-    
-
-
-    });
+    note.addEventListener("mouseout", stop);
 });
