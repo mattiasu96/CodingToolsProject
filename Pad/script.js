@@ -87,8 +87,21 @@ notes = document.querySelectorAll(".hex");
 var ac =  new AudioContext();
 
 //NB questa soluzione in teoria funziona, in pratica mi da errore perchè non posso richiamare start 2 volte sullo stesso elemento (nodo). Una volta che lo stoppo non posso più ristartarlo. Quello che dovrei fare è o re-inserirlo nella funzione play, così ogni volta che è chiamata crea delle variabili locali che poi vengono distrutte, quindi la funzione start e stop lavora su variabili create nuove. Altrimenti invece di stop (se inserisco la definizione di osc e lfo all'esterno della funzione play) uso connect e disconnect.
-var osc = ac.createOscillator();
-var lfo = ac.createOscillator();
+//var osc = ac.createOscillator();
+//var lfo = ac.createOscillator();
+
+// REIMPLEMENTA LA FUNZIONE PLAY TRAMITE DEFINIZIONE + VARIABILE ALTRIMENTI NON FUNZIONA : BREVE ESEMPIO
+
+/* function play(){
+        var osc = ac.createOscillator();
+    var lfo = ac.createOscillator();
+     osc.frequency.value=1000;
+	returnedObject={};
+      returnedObject["value1"] = osc;
+     returnedObject["value2"] = lfo;
+     return returnedObject;}
+var test = play(); */  //RITORNA I VALORI VOLUTI DI OSC E LFO 
+
 var play = function () {
     x =  event.target.title;
     var mynote;
@@ -108,8 +121,8 @@ var play = function () {
     //var Q = $('#Q').val();
     var Q = 0;
 
-    //var osc = ac.createOscillator();
-    //var lfo = ac.createOscillator();
+    var osc = ac.createOscillator();
+    var lfo = ac.createOscillator();
     var filter = ac.createBiquadFilter();
     osc.type = 'square';
     var amp = ac.createGain();
@@ -139,6 +152,7 @@ var play = function () {
    // osc.stop(ac.currentTime + 3);
     lfo.start(ac.currentTime);
    // lfo.stop(ac.currentTime + 3);
+    
 };
 
 notes.forEach(function(note) {
