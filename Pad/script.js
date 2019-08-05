@@ -83,7 +83,7 @@ var mode = 0; // 0 = modalità single note, 1 = modalità multiple notes
 
 
 notes = document.querySelectorAll(".hex");
-    Tone.context.resume();
+Tone.context.resume();
 var ac =  new AudioContext();
 
 //NB questa soluzione in teoria funziona, in pratica mi da errore perchè non posso richiamare start 2 volte sullo stesso elemento (nodo). Una volta che lo stoppo non posso più ristartarlo. Quello che dovrei fare è o re-inserirlo nella funzione play, così ogni volta che è chiamata crea delle variabili locali che poi vengono distrutte, quindi la funzione start e stop lavora su variabili create nuove. Altrimenti invece di stop (se inserisco la definizione di osc e lfo all'esterno della funzione play) uso connect e disconnect.
@@ -101,8 +101,7 @@ var ac =  new AudioContext();
      returnedObject["value2"] = lfo;
      return returnedObject;}
 var test = play(); */  //RITORNA I VALORI VOLUTI DI OSC E LFO 
-
-var play = function () {
+function play() {
     x =  event.target.title;
     var mynote;
     mynote = Tonal.freq(x);
@@ -152,16 +151,22 @@ var play = function () {
    // osc.stop(ac.currentTime + 3);
     lfo.start(ac.currentTime);
    // lfo.stop(ac.currentTime + 3);
+    returnedObject={};
+    returnedObject["value1"] = osc;
+    returnedObject["value2"] = lfo;
+    return returnedObject;
+    
     
 };
-
+var test;
 notes.forEach(function(note) {
-    note.addEventListener("mouseover", play);
+    note.addEventListener("mouseover", () => (test = play()));
 });
 
 
 // Ho un problema di scope, questa funzione non ha accesso agli osc e lfo dichiarati nella funzione play 
-
+// test.value1.stop(ac.currentTime); Ora ho il return nella funzione play, inserisco questo nella funzione stop.
+// NB: così funziona, tuttavia se uso multiple notes, rischio di perdere la reference sul singolo oscillatore e quindi non posso più stopparlo, in quanto sovrascrivo la reference di test.
 var stop = function () {
    x =  event.target.title;
    osc.stop(ac.currentTime);
