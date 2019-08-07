@@ -234,12 +234,12 @@ chord_list.forEach(function(chord){
 
 var fundamental_notes_html; // variabile in cui piazzo gli elementi dell'html
 var fundamental_notes; // variabile in cui piazzo la nota scelta
+var chord_type_html;
 var chord_type;
-
 var full_chord;
 
 fundamental_notes_html =  document.querySelectorAll("#b1");
-
+chord_type_html = chords_buttons;
 var selected_note_function = function(){
     fundamental_notes = event.target.
     innerHTML;
@@ -250,4 +250,17 @@ var selected_note_function = function(){
 };
 fundamental_notes_html.forEach(function(note) {
     note.addEventListener("click", selected_note_function);
+});
+
+var selected_chord_function = function(){
+    chord_type = event.target.
+    innerHTML;
+    console.log("Clicked chord!");
+    console.log(Tonal.Chord.notes("C"+event.target.
+    innerHTML));
+    
+};
+
+chord_type_html.forEach(function(item) {
+    item.addEventListener("click", selected_chord_function);
 });
