@@ -169,8 +169,8 @@ notes.forEach(function(note) {
 // NB: così funziona, tuttavia se uso multiple notes, rischio di perdere la reference sul singolo oscillatore e quindi non posso più stopparlo, in quanto sovrascrivo la reference di test.
 var stop = function () {
    x =  event.target.title;
-   osc.stop(ac.currentTime);
-   lfo.stop(ac.currentTime); 
+   test.value1.stop(ac.currentTime);
+   test.value2.stop(ac.currentTime); 
 };
 
 notes.forEach(function(note) {
