@@ -176,3 +176,42 @@ var stop = function () {
 notes.forEach(function(note) {
     note.addEventListener("mouseout", stop);
 });
+
+
+
+// ----------------- GESTIONE DEGLI ACCORDI
+
+
+
+// GENERAZIONE CHORDS
+var chord_list = ["maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5", "ciao"];
+var chord_list_length = chord_list.length;
+function addTable() {
+  var myTableDiv = document.getElementById("chord-selector");
+
+  var table = document.createElement('TABLE');
+  table.setAttribute("id","matrix-chord");
+
+  var tableBody = document.createElement('TBODY');
+  table.appendChild(tableBody);
+
+  for (var i = 0; i < chord_list_length/4; i++) {
+    var tr = document.createElement('TR');
+    tableBody.appendChild(tr);
+
+    for (var j = 0; j < 4; j++) {
+      var td = document.createElement('TD');
+
+      var button = document.createElement("BUTTON");
+      button.setAttribute("id", "b1");
+      td.appendChild(button);
+      
+      tr.appendChild(td);
+  
+    }
+  }
+  myTableDiv.appendChild(table);
+}
+addTable();
+
+// qui metto un forEach che itera sulla lista di accordi con un counter extra che incremento, così setto per ogni pulsante il nome dell'accordo che contiene 
