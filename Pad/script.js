@@ -183,8 +183,9 @@ notes.forEach(function(note) {
 
 
 
-// GENERAZIONE CHORDS
-var chord_list = ["maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5", "ciao"];
+/// GENERAZIONE CHORDS
+//var chord_list = ["maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5", "ciao"];
+var chord_list = Tonal.chord.names();
 var chord_list_length = chord_list.length;
 function addTable() {
   var myTableDiv = document.getElementById("chord-selector");
@@ -203,7 +204,7 @@ function addTable() {
       var td = document.createElement('TD');
 
       var button = document.createElement("BUTTON");
-      button.setAttribute("id", "b1");
+      button.setAttribute("id", "b3");
       td.appendChild(button);
       
       tr.appendChild(td);
@@ -215,3 +216,13 @@ function addTable() {
 addTable();
 
 // qui metto un forEach che itera sulla lista di accordi con un counter extra che incremento, così setto per ogni pulsante il nome dell'accordo che contiene 
+
+chords_buttons = document.querySelectorAll("#b3");
+var index = 0;
+chord_list.forEach(function(chord){
+  chords_buttons[index].innerHTML = chord;
+  index++;
+  
+  
+  
+});
