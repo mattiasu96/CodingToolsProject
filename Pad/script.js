@@ -184,7 +184,7 @@ notes.forEach(function(note) {
 
 
 /// GENERAZIONE CHORDS
-//var chord_list = ["maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5","maj7", "m7", "7", "#5", "ciao"];
+
 var chord_list = Tonal.chord.names();
 var chord_list_length = chord_list.length;
 function addTable() {
@@ -225,4 +225,29 @@ chord_list.forEach(function(chord){
   
   
   
+});
+
+
+
+
+// SELEZIONE E LIGHTNING DEGLI ACCORDI 
+
+var fundamental_notes_html; // variabile in cui piazzo gli elementi dell'html
+var fundamental_notes; // variabile in cui piazzo la nota scelta
+var chord_type;
+
+var full_chord;
+
+fundamental_notes_html =  document.querySelectorAll("#b1");
+
+var selected_note_function = function(){
+    fundamental_notes = event.target.
+    innerHTML;
+    console.log("Clicked note!");
+    console.log(Tonal.Chord.notes(event.target.
+    innerHTML));
+    
+};
+fundamental_notes_html.forEach(function(note) {
+    note.addEventListener("click", selected_note_function);
 });
