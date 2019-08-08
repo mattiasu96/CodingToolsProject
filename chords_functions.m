@@ -22,10 +22,10 @@ figure();
 fplot(@(x) (B3*(exp(-B1*x^(gamma1))-exp(-B2*x^(gamma1)))),[0,10],'b')
 
 %% Testing function 1) dissonance of two frequencies
-f1 = 392; f2=261.63; xmax=0.24;
+f1 = 261.63; f2=392; xmax=0.24;
 s = xmax/(0.0207*f1 + 18.96);
-
-d=exp(-3.51*s*(f2-f1))-exp(-5.75*s*(f2-f1));
+x=log(f2/f1);
+d=exp(-3.51*s*(x))-exp(-5.75*s*(x));
 
 %% Testing initialization
 notes_frequencies = [261.63 ,329.63,392.00]; %Hint per svolgere l'eq: fai matrice quadrata:
@@ -87,3 +87,5 @@ d=dissmeasure(f, a);
 diss=[diss d];
 end
 plot(1:inc:range,diss)
+
+%% implementing psychoacustical tension of triads. 
