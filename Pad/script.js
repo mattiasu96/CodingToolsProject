@@ -123,7 +123,7 @@ function play() {
     var osc = ac.createOscillator();
     var lfo = ac.createOscillator();
     var filter = ac.createBiquadFilter();
-    osc.type = 'square';
+    osc.type = 'sine';
     var amp = ac.createGain();
     var lfoAmp = ac.createGain();
     lfo.connect(lfoAmp);
