@@ -22,12 +22,64 @@ figure();
 fplot(@(x) (B3*(exp(-B1*x^(gamma1))-exp(-B2*x^(gamma1)))),[0,10],'b')
 
 %% Testing function 1) dissonance of two frequencies
-f1 = 500; f2=700; xmax=0.24;
+f1 = 392; f2=261.63; xmax=0.24;
 s = xmax/(0.0207*f1 + 18.96);
 
 d=exp(-3.51*s*(f2-f1))-exp(-5.75*s*(f2-f1));
 
-%% Testing C chord.
-notes_frequencies = [261.63,329.63,392.00]; %Hint per svolgere l'eq: fai due matrici quadrate e poi prodotto righe per colonne
+%% Testing initialization
+notes_frequencies = [261.63 ,329.63,392.00]; %Hint per svolgere l'eq: fai matrice quadrata:
+A=repmat(261.63,1,6);
+B=repmat(329.63,1,6);
+C=repmat(415.30,1,6);
 
 
+matrix_repeated= [A;B;C];
+
+partial_amp = [1,0.88,0.76,0.64,0.58,0.52];
+partial_amp = repmat(partial_amp,3,1);
+matrix_with_partials= [1,2,3,4,5,6];
+matrix_with_partials=repmat(matrix_with_partials,3,1);
+matrix_multiple_freq = matrix_repeated.*matrix_with_partials;
+matrix_multiple_freq= matrix_multiple_freq.*partial_amp;
+matrix_multiple_freq=matrix_multiple_freq';
+matrix_multiple_freq=matrix_multiple_freq(:);
+%%
+
+d=dissmeasure(matrix_multiple_freq.',[1,0.88,0.76,0.64,0.58,0.52,1,0.88,0.76,0.64,0.58,0.52,1,0.88,0.76,0.64,0.58,0.52]);
+d1 = dissmeasure([261.63,415.30],[1,1]);
+%% test dissonance a mano
+freq1= 261.63*[1,2,3,4,5,6];
+freq2= 311.13*[1,2,3,4,5,6];
+freq3=392.00*[1,2,3,4,5,6];
+amp=ones(size(freq1));
+d1=dissmeasure([freq1 freq2],[amp,amp]);
+d2=dissmeasure([freq1 freq3],[amp,amp]);
+d3=dissmeasure([freq2 freq3],[amp,amp]);
+dtot=d1+d2+d3;
+
+%% la curva di dissonanza la traccio chiamando ripetutamente la funzione di dissonanza per due frequenze
+freq=500*[1 2 3 4 5 6 7]; amp=ones(size(freq));
+range=2.3; inc=0.01; diss=[0];
+%
+% call function dissmeasure for each interval
+%
+
+%qui stabilisco con alpha quali siano i multipli della fondamentale della
+%quale tracciare la dissonanza. Praticamente ho una frequenza fondamentale
+%con i suoi n armonici, dopo di che inizio a scandire incrementando la
+%frequenza base del secondo suono e calcolo ogni volta la dissonanza. inc è
+%l'incremento, range è il range massimo fin dove arrivo. Alla fine ci avevo
+%azeccato con l'algoritmo.
+
+%Praticamente per calcolar la dissonanza tra due suoni, "impilo" TUTTE le
+%armoniche dei due con relative amplitude, praticamente avrò una lista di
+%frequenze e ampiezze e su di esse calcolo la dissonanza come avevo già
+%fatto prima.
+for alpha=1+inc:inc:range,
+f=[freq alpha*freq];
+a=[amp, amp];
+d=dissmeasure(f, a);
+diss=[diss d];
+end
+plot(1:inc:range,diss)
