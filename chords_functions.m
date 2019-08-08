@@ -49,9 +49,13 @@ matrix_multiple_freq=matrix_multiple_freq(:);
 d=dissmeasure(matrix_multiple_freq.',[1,0.88,0.76,0.64,0.58,0.52,1,0.88,0.76,0.64,0.58,0.52,1,0.88,0.76,0.64,0.58,0.52]);
 d1 = dissmeasure([261.63,415.30],[1,1]);
 %% test dissonance a mano
-freq1= 261.63*[1,2,3,4,5,6];
-freq2= 311.13*[1,2,3,4,5,6];
-freq3=392.00*[1,2,3,4,5,6];
+%Probably ho trovato il modello. Si discosta dal modello del paper di
+%qualche piccolo valore, ma l'andamento è coerente: Major ha dissonanza
+%minore dell'accordo minore, e augmented ha dissonanza maggiore
+%dell'accordo minore
+freq1= 261.63*[1,2,3,4,5];
+freq2= 329.63*[1,2,3,4,5];
+freq3=415.30*[1,2,3,4,5];
 amp=ones(size(freq1));
 d1=dissmeasure([freq1 freq2],[amp,amp]);
 d2=dissmeasure([freq1 freq3],[amp,amp]);
