@@ -13,6 +13,9 @@ D=0;
 for i=2:N
 Fmin=fvec(1:N-i+1);
 S=Dstar./(S1*Fmin+S2);
+%Calcola tutte le coppie di frequenze e ne fa lac dissonanza, una volta per
+%ciascuna! Non ho ripetizioni! Cioè se la coppia f1 e f2 l'ho già fatta,
+%non la rifaccio un'altra volta
 Fdif=fvec(i:N)-fvec(1:N-i+1);
 a=min(ams(i:N),ams(1:N-i+1));
 Dnew=a.*(C1*exp(A1*S.*Fdif)+C2*exp(A2*S.*Fdif));
