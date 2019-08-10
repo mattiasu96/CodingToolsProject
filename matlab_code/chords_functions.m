@@ -101,17 +101,45 @@ fplot(@(x) (exp(-(((x)/0.6))^2))); %NB: IN TEORIA DEVO CONVERTIRE GLI INTERVALLI
 %FUNZIONARE DEVO CONVERTIRE TUTTO IN INTERVALLI DI SEMITONI, ANCHE SE MI
 %PARE INCONGRUENTE CON LA DEFINIZIONE CHE USA LE FREQUENZE.
 
-%% Complete function of tension
+%% Complete function of tension, considering all possible increasing triplets 
+%Con il C major e un overtone (quindi 1 e 2 come moltiplicatori nelle parentesi)
+%il valore della tensione è coerente con i paper "The Psychophysics of Harmony Perception:
+%Harmony is a Three-Tone Phenomenon" e "Calculation of the acoustical
+%properties of triadic harmonies"
+ 
+%Però ad esempio con il diminuito non è più coerente, ottengo 4 di tensione
+%invece di 1.68.
+%Tuttavia i due paper sono coerenti tra loro. Provare a implementare
+%un'altra versione con TUTTE LE TRIPLETS (cioè iterando completamente sulle
+%3 sommatorie come riportato nel paper) e n in teoria è il numero totale
+%delle componenti armoniche (quindi seguendo quella formula, in teoria avrò
+%anche triplets costituite dall'unisono di 3 note uguali, provare per
+%vedere se è coerente)
 
-freq1= 261.63*[1,2,3,4,5,6];
-freq2= 311.13*[1,2,3,4,5,6];
-freq3=369.99*[1,2,3,4,5,6];
+freq1= 261.63*[1,2];
+freq2= 311.13*[1,2];
+freq3=369.99*[1,2];
 frequencies = [freq1, freq2, freq3];
 frequencies = sort(frequencies);
 total_tension = 0;
 for i=1:length(frequencies)-2
    for j=(i+1):length(frequencies)-1
       for k=(j+1):length(frequencies)
+          total_tension = total_tension + tension(frequencies(i),frequencies(j),frequencies(k));
+      end
+   end
+end
+%% Tension counting only adjacent triplets
+
+freq1= 261.63*[1,2,3,4,5];
+freq2= 311.13*[1,2,3,4,5];
+freq3=369.99*[1,2,3,4,5];
+frequencies = [freq1, freq2, freq3];
+frequencies = sort(frequencies);
+total_tension = 0;
+for i=1:length(frequencies)-2
+   for j=(2):length(frequencies)-1
+      for k=(3):length(frequencies)
           total_tension = total_tension + tension(frequencies(i),frequencies(j),frequencies(k));
       end
    end
