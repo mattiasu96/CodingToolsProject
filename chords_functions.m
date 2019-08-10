@@ -63,12 +63,12 @@ d3=dissmeasure([freq2 freq3],[amp,amp]);
 dtot=d1+d2+d3;
 
 %% la curva di dissonanza la traccio chiamando ripetutamente la funzione di dissonanza per due frequenze
-freq=500*[1 2 3 4 5 6 7]; amp=ones(size(freq));
+%freq=500*[1 2 3 4 5 6 7]; amp=ones(size(freq));
 range=2.3; inc=0.01; diss=[0];
 %
 % call function dissmeasure for each interval
 %
-
+freq = [500 1.86*500]; amp = [10 10];
 %qui stabilisco con alpha quali siano i multipli della fondamentale della
 %quale tracciare la dissonanza. Praticamente ho una frequenza fondamentale
 %con i suoi n armonici, dopo di che inizio a scandire incrementando la
@@ -80,6 +80,7 @@ range=2.3; inc=0.01; diss=[0];
 %armoniche dei due con relative amplitude, praticamente avrò una lista di
 %frequenze e ampiezze e su di esse calcolo la dissonanza come avevo già
 %fatto prima.
+%La scala di base sotto in questo caso è il frequency ratio
 for alpha=1+inc:inc:range,
 f=[freq alpha*freq];
 a=[amp, amp];

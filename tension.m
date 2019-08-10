@@ -6,9 +6,9 @@ function [tension] = tension(f1,f2,f3)
 %tones, as follows: quindi devo calcolare la tension di ogni singola nota
 %facendo triple sugli overtones della singola nota, e poi sommare le
 %tension.
- Fdif1 = log10(f2/f1);
- Fdif2 = log10(f3/f2);
+ Fdif1 = log(f2/f1);
+ Fdif2 = log(f3/f2);
  alpha = 0.60;
- tension = exp(-(((Fdif1-Fdif2)/alpha))^2);
+ tension = exp(-(((Fdif2 - Fdif1)/alpha))^2);
 end
 

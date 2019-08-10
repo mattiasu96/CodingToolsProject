@@ -11,7 +11,7 @@ N=length(fvec);
 ams=amp(ind);
 D=0;
 for i=2:N
-Fmin=fvec(1:N-i+1);
+Fmin=fvec(1:N-i+1); %Per la formula vedere il paper di consoinance sethares
 S=Dstar./(S1*Fmin+S2);
 %Calcola tutte le coppie di frequenze e ne fa lac dissonanza, una volta per
 %ciascuna! Non ho ripetizioni! Cioè se la coppia f1 e f2 l'ho già fatta,
