@@ -101,4 +101,19 @@ fplot(@(x) (exp(-(((x)/0.6))^2))); %NB: IN TEORIA DEVO CONVERTIRE GLI INTERVALLI
 %FUNZIONARE DEVO CONVERTIRE TUTTO IN INTERVALLI DI SEMITONI, ANCHE SE MI
 %PARE INCONGRUENTE CON LA DEFINIZIONE CHE USA LE FREQUENZE.
 
+%% Complete function of tension
+
+freq1= 261.63*[1,2,3,4,5,6];
+freq2= 311.13*[1,2,3,4,5,6];
+freq3=369.99*[1,2,3,4,5,6];
+frequencies = [freq1, freq2, freq3];
+frequencies = sort(frequencies);
+total_tension = 0;
+for i=1:length(frequencies)-2
+   for j=(i+1):length(frequencies)-1
+      for k=(j+1):length(frequencies)
+          total_tension = total_tension + tension(frequencies(i),frequencies(j),frequencies(k));
+      end
+   end
+end
 
