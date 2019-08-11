@@ -254,6 +254,14 @@ fundamental_notes_html.forEach(function(note) {
 
 function light_chord(){
         chord_notes = Tonal.Chord.notes(full_chord);
+        console.log("Printo le chords notes:"+chord_notes);
+        var selected_notes = chord_notes.map(title => document.querySelector(`[title="${title}"]`));
+        
+        selected_notes.forEach(function(element) {
+           console.log(element);
+           element.style.background='red';
+        });
+        console.log(selected_notes);
     
         
 }
