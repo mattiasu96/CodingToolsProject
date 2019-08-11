@@ -257,7 +257,10 @@ function light_chord(){
         console.log("Printo le chords notes:"+chord_notes);
    //Funziona ma il risultato è un array del tipo [nodelist1 nodelist2 nodelist3], una lista di elementi per ciascuna entry della query,
     //cioè i vari titoli. Avrò n liste con n il numero di note inserite per l'accordo. Ad esempio Cmajor avro C,E,G e quindi tre liste contenenti tutti i C,i E e gli G
-        var selected_notes = chord_notes.map(title => document.querySelectorAll(`[note="${title}"]`));
+        
+    // VERSIONE CON CLASSE: var selected_notes = chord_notes.map(title => document.querySelectorAll("."+title));
+    
+    var selected_notes = chord_notes.map(title => document.querySelectorAll(`[note="${title}"]`));
         
         selected_notes.forEach(function(element) {
             element.forEach(function(note){
