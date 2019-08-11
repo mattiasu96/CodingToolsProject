@@ -252,12 +252,20 @@ fundamental_notes_html.forEach(function(note) {
     note.addEventListener("click", selected_note_function);
 });
 
+function light_chord(){
+        chord_notes = Tonal.Chord.notes(full_chord);
+    
+        
+}
 var selected_chord_function = function(){
     chord_type = event.target.
     innerHTML;
     console.log("Clicked chord!");
     console.log(Tonal.Chord.notes("C"+event.target.
     innerHTML));
+    full_chord = fundamental_notes+chord_type;
+    console.log(full_chord);
+    light_chord();
     
 };
 

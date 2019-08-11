@@ -116,9 +116,13 @@ fplot(@(x) (exp(-(((x)/0.6))^2))); %NB: IN TEORIA DEVO CONVERTIRE GLI INTERVALLI
 %anche triplets costituite dall'unisono di 3 note uguali, provare per
 %vedere se è coerente)
 
+%L'andamento dei valori è coerente con i risultati dei paper (accordi
+%maggiori e minori hanno tensione simile, l'aumentato ha il valore maggiore
+%e il diminuito e di 2 punti minore dell'aumentato), tuttavia i valori
+%assoluti son diversi 
 freq1= 261.63*[1,2];
-freq2= 311.13*[1,2];
-freq3=369.99*[1,2];
+freq2=329.63*[1,2];
+freq3=415.30*[1,2];
 frequencies = [freq1, freq2, freq3];
 frequencies = sort(frequencies);
 total_tension = 0;
@@ -131,9 +135,9 @@ for i=1:length(frequencies)-2
 end
 %% Tension counting only adjacent triplets
 
-freq1= 261.63*[1,2,3,4,5];
-freq2= 311.13*[1,2,3,4,5];
-freq3=369.99*[1,2,3,4,5];
+freq1= 261.63*[1,2];
+freq2= 311.13*[1,2];
+freq3=369.99*[1,2];
 frequencies = [freq1, freq2, freq3];
 frequencies = sort(frequencies);
 total_tension = 0;
@@ -144,4 +148,18 @@ for i=1:length(frequencies)-2
       end
    end
 end
+%% tension counting ALL POSSIBLE triplets (even duplicates)
 
+freq1= 261.63*[1,2];
+freq2= 311.13*[1,2];
+freq3=369.99*[1,2];
+frequencies = [freq1, freq2, freq3];
+frequencies = sort(frequencies);
+total_tension = 0;
+for i=1:length(frequencies)
+   for j=(1):length(frequencies)
+      for k=(1):length(frequencies)
+          total_tension = total_tension + tension(frequencies(i),frequencies(j),frequencies(k));
+      end
+   end
+end
