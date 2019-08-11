@@ -255,11 +255,17 @@ fundamental_notes_html.forEach(function(note) {
 function light_chord(){
         chord_notes = Tonal.Chord.notes(full_chord);
         console.log("Printo le chords notes:"+chord_notes);
-        var selected_notes = chord_notes.map(title => document.querySelector(`[title="${title}"]`));
+   //Funziona ma il risultato è un array del tipo [nodelist1 nodelist2 nodelist3], una lista di elementi per ciascuna entry della query,
+    //cioè i vari titoli. Avrò n liste con n il numero di note inserite per l'accordo. Ad esempio Cmajor avro C,E,G e quindi tre liste contenenti tutti i C,i E e gli G
+        var selected_notes = chord_notes.map(title => document.querySelectorAll(`[note="${title}"]`));
         
         selected_notes.forEach(function(element) {
-           console.log(element);
-           element.style.background='red';
+            element.forEach(function(note){
+             console.log(note);
+             note.style.background='red';   
+                
+            })
+           
         });
         console.log(selected_notes);
     
