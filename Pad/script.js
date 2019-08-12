@@ -259,20 +259,27 @@ function light_chord(){
     // due backslash \\ prima del #. A questo punto credo di dover inserire un ciclo di controllo che forza l'inserimento dei \\ nella lista delle note
     // in chord_notes. 
         
-     var selected_notes = chord_notes.map(title => document.querySelectorAll("."+title));
+     var selected_notes = chord_notes.map(title => document.getElementsByClassName(title));
     
     //var selected_notes = chord_notes.map(title => document.querySelectorAll(`[note="${title}"]`));
         
-        selected_notes.forEach(function(element) {
-            element.forEach(function(note){
-             console.log(note);
+    [].forEach.call(selected_notes, function (element) {
+        [].forEach.call(element, function (note){
+            console.log(note);
              note.style.background='red';   
-                
-            })
-           
+            
+            
+            
+            
         });
-        console.log(selected_notes);
+        
     
+    
+    
+    
+    
+    
+    });
         
 }
 var selected_chord_function = function(){
