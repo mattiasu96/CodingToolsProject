@@ -255,9 +255,7 @@ fundamental_notes_html.forEach(function(note) {
 function light_chord(){
         chord_notes = Tonal.Chord.notes(full_chord);
         console.log("Printo le chords notes:"+chord_notes);
-     //Funziona ma non con gli #. Se becca una nota con # va in errore in quanto non è una query valida. Per risolvere il problema devo aggiungere
-    // due backslash \\ prima del #. A questo punto credo di dover inserire un ciclo di controllo che forza l'inserimento dei \\ nella lista delle note
-    // in chord_notes. 
+     //ADESSO DEVO INSERIRE IL CUSTOM COLOR UTILIZZANDO IL PAPER. PER FAR CIO' CONVIENE UTILIZZARE UN OGGETTO CHE RAPPRESENTA LA TABELLA CON I DATI, LE VARIABILI CHE RAPPRESENTANO IL TIPO DI ACCORDO E POI CIASCUNA VAFIABILE HA 3 ENTRIES CHE SONO I VALORI DI TENSIONE, DISSONANCE E MODALITY. DOPO DI CHE INSERISCO UN METODO CHIAMABILE NELL'OGGETTO CHE RESITUISCE I 3 VALORI ASSOCIATI ALLA SIGLA PASSATA NELLA CHIAMATA 
         
      var selected_notes = chord_notes.map(title => document.getElementsByClassName(title));
     
