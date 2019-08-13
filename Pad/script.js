@@ -186,6 +186,7 @@ notes.forEach(function(note) {
 /// GENERAZIONE CHORDS
 
 var chord_list = Tonal.chord.names(); //aggiungere a mano degli accordi mancanti, vedere la table dei valori di tension,dissonance e modality, alcuni accordi sono acessibili tramite Tonal.Chords.notes("name") ma non vengono indicizzati dalla funzione .names, devo aggiungerli a mano 
+chord_list.push("aug"); chord_list.push("6"); chord_list.push("aug7"); chord_list.push("7sus4"); chord_list.push("dim7"); chord_list.push("sus4"); chord_list.push("dim"); chord_list.push("m6");
 var chord_list_length = chord_list.length;
 function addTable() {
   var myTableDiv = document.getElementById("chord-selector");
@@ -272,9 +273,22 @@ var selected_note_function = function(){
     
 };
 
+function reset_color(){
+   notes.forEach(function(note){
+                 
+                 note.style.background="#ccc";   
+                 
+                 })
+        
+    
+    
+}
 
 fundamental_notes_html.forEach(function(note) {
     note.addEventListener("click", selected_note_function);
+    note.addEventListener("click", reset_color);
+
+    
 });
 
 
