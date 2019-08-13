@@ -237,9 +237,32 @@ var fundamental_notes; // variabile in cui piazzo la nota scelta
 var chord_type_html;
 var chord_type;
 var full_chord;
+var parameters_table = {
+	M:{D:3.944,T:1.1606,M:5.3893},
+	7:{D:5.1847,T:2.059,M:2.8712},
+	aug:{D:4.99,T:6.173,M:1.495},
+	6:{D:4.962,T:1.2287,M:0.94456},
+	aug7:{D:6.14,T:4.16,M:0.632},
+    m7b5:{D:6.12226,T:2.6665,M:0.29159},
+	//objects attribute must start with a non number element. In order to start with a number i have to use "" and then access the element with []
+	"7sus4":{D:4.7313,T:2.7964,M:0.2592},
+	dim7:{D:6.29,T:2.234,M:0.087},
+	sus4:{D:3.9909,T:3.03697,M:0.0389},
+	m7:{D:4.7279,T:1.0244,M:-0.06},
+	dim:{D:5.6428,T:3.7355,M:-2.12},
+	m6:{D:5.494,T:1.5,M:-2.714},
+	m:{D:4.06,T:1.19,M:-5.117},
+
+    myMethod: function(params) {
+      console.log(params);
+      console.log(this[params]);
+    }
+};
 
 fundamental_notes_html =  document.querySelectorAll("#b1");
 chord_type_html = chords_buttons;
+
+
 var selected_note_function = function(){
     fundamental_notes = event.target.
     innerHTML;
@@ -248,9 +271,13 @@ var selected_note_function = function(){
     innerHTML));
     
 };
+
+
 fundamental_notes_html.forEach(function(note) {
     note.addEventListener("click", selected_note_function);
 });
+
+
 
 function light_chord(){
         chord_notes = Tonal.Chord.notes(full_chord);
@@ -265,21 +292,12 @@ function light_chord(){
         [].forEach.call(element, function (note){
             console.log(note);
              note.style.background='red';   
-            
-            
-            
-            
+            });
         });
-        
-    
-    
-    
-    
-    
-    
-    });
-        
 }
+
+
+
 var selected_chord_function = function(){
     chord_type = event.target.
     innerHTML;
