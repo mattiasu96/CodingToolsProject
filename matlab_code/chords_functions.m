@@ -192,8 +192,8 @@ for n=1:2
         DI=12*log2((freq(:,2).^2).*(1./(freq(:,1).*freq(:,3))));
         V=amp(:,1).*amp(:,2).*amp(:,3);
         T=V.*exp(-((DI./0.6).^2));
-        plot(l,sum(T), '--');
-         hold on;
+        hold on; plot(l,sum(T), 'o');
+       
     end
 end
 
