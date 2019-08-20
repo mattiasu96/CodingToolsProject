@@ -167,8 +167,8 @@ end
 %% Tension by japanese 
 
 %curve tension
-figure();
-for n=1:2
+
+for n=1:6
     m =3.0; 
     for l=0:0.01:12.0-m
         LF0=261.63;
@@ -192,13 +192,8 @@ for n=1:2
         DI=12*log2((freq(:,2).^2).*(1./(freq(:,1).*freq(:,3))));
         V=amp(:,1).*amp(:,2).*amp(:,3);
         T=V.*exp(-((DI./0.6).^2));
-        plot(l,sum(T), '--');
-         hold on;
+        hold on; plot(l,sum(T),'k')
     end
 end
-
 xlabel('2nd interval (semitones)'); ylabel('Tension(T)'); grid on;
-%%
- x = 0:pi/100:2*pi;
-y = sin(x);
-plot(x,y)        
+            
