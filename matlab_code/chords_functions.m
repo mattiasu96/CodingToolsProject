@@ -121,8 +121,8 @@ fplot(@(x) (exp(-(((x)/0.6))^2))); %NB: IN TEORIA DEVO CONVERTIRE GLI INTERVALLI
 %e il diminuito e di 2 punti minore dell'aumentato), tuttavia i valori
 %assoluti son diversi 
 freq1= 261.63*[1,2];
-freq2=329.63*[1,2];
-freq3=415.30*[1,2];
+freq2=311.13*[1,2];
+freq3=369.99*[1,2];
 frequencies = [freq1, freq2, freq3];
 frequencies = sort(frequencies);
 total_tension = 0;
@@ -166,16 +166,29 @@ end
 
 %% Tension by japanese 
 
-%curve tension
+%curve tension. Per come è implementato in origine il codice, ho il primo
+%intervallo (tra tonica e seconda nota) che è una terza minore. Il secondo
+%intervallo (tra la seconda e terza nota) e uno sliding interval che parte
+%dall'unisono e aumenta ogni volta. Dal grafico si vede come (nel caso
+%senza upper harmonics, quindi solo la fondamentale) la tensione assume
+%valore 1 quando l'accordo complessivo è un diminuito, cioè il secondo
+%intervallo è di 3 semitoni. 
 figure();
-for n=1:2
+for n=2:2
     m =3.0; 
     for l=0:0.01:12.0-m
         LF0=261.63;
         MF0=2^(m/12)*LF0;
         HF0=2^(l/12)*MF0;
         for s=1:n^3
-            i=round(mod(s-1,n)+1);
+            i=round(mod(s-1,n)+1);  %%queste i,j,k sono gli indici moltiplicativi per ottenere per ciascuna fondamentale 
+            %(LF0,MF0 e HF0) le relative armoniche. Il ciclo for con s mi
+            %restituisce tutte le possibili combinazioni di triadi senza
+            %ripetizioni, quindi le triadi uniche. Tali triadi inoltre non
+            %hanno duplicati di armonici (non prendo in considerazione in
+            %una triade più volte la medesima nota/elemento). Per sapere il
+            %numero di combinazioni uniche di x elementi dato un insieme di
+            %n elementi, vedere calcolo combinatorio
             j=round(mod((s-i)/n,n)+1);
             k=round((s-n*(j-1)-i)/(n^2)+1);
             
@@ -185,11 +198,13 @@ for n=1:2
             
             freq(s,:)=sort(freq(s,:));
             
-            amp(s,1)=0.88.^(i-1);
-            amp(s,2)=0.88.^(j-1);
-            amp(s,3) = 0.88.^(k-1);
+            amp(s,1)=1.^(i-1);
+            amp(s,2)=1.^(j-1);
+            amp(s,3) = 1.^(k-1);
         end
-        DI=12*log2((freq(:,2).^2).*(1./(freq(:,1).*freq(:,3))));
+        DI=12*log2((freq(:,2).^2).*(1./(freq(:,1).*freq(:,3)))); %%il 12log2 converte una differenza in hertz in semitoni.
+        %l'equazione successiva è lo sviluppo di quella data all'inizio di
+        %log(f3/f2)-log(f2/f1)
         V=amp(:,1).*amp(:,2).*amp(:,3);
         T=V.*exp(-((DI./0.6).^2));
         hold on; plot(l,sum(T), 'o');
