@@ -293,7 +293,7 @@ fundamental_notes_html.forEach(function(note) {
 
 
 
-function light_chord(){
+function light_chord(color){
         chord_notes = Tonal.Chord.notes(full_chord);
         console.log("Printo le chords notes:"+chord_notes);
      //ADESSO DEVO INSERIRE IL CUSTOM COLOR UTILIZZANDO IL PAPER. PER FAR CIO' CONVIENE UTILIZZARE UN OGGETTO CHE RAPPRESENTA LA TABELLA CON I DATI, LE VARIABILI CHE RAPPRESENTANO IL TIPO DI ACCORDO E POI CIASCUNA VAFIABILE HA 3 ENTRIES CHE SONO I VALORI DI TENSIONE, DISSONANCE E MODALITY. DOPO DI CHE INSERISCO UN METODO CHIAMABILE NELL'OGGETTO CHE RESITUISCE I 3 VALORI ASSOCIATI ALLA SIGLA PASSATA NELLA CHIAMATA 
@@ -305,10 +305,11 @@ function light_chord(){
     [].forEach.call(selected_notes, function (element) {
         [].forEach.call(element, function (note){
             console.log(note);
-             note.style.background='red';   
+             note.style.background=color;   
             });
         });
 }
+
 
 
 
@@ -320,7 +321,9 @@ var selected_chord_function = function(){
     innerHTML));
     full_chord = fundamental_notes+chord_type;
     console.log(full_chord);
-    light_chord();
+    var color = 'red'
+    //METTERE UN IF CON LA CONDIZIONE SUL TIPO DI ACCORDO (MAJ, MINOR, AUG ECC...), E CHECKARE NELLA TABELLA. SE ESISTE, CALCOLO IL COLORE TRAMITE LA FUNZIONE DEL PAPER E LO PASSO ALLA FUNZIONE light_color(color), altrimenti setto di default 'red'.
+    light_chord(color);
     
 };
 
