@@ -333,6 +333,9 @@ var selected_chord_function = function(){
         var T =  parameters_table[chord_type].T;
         console.log(T);
         var h =(1.632 + 0.221*M - 0.159*T - 0.423*D)*180/3.14 ;
+        if(h<0){
+            h=360+h;
+        }
         var s = (0.885+0.015*M-0.042*D)*100;
         var l = (0.475+0.018*M-0.021*T)*100;
         console.log("hue,saturation and luminance:");
