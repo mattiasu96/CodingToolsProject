@@ -186,7 +186,7 @@ notes.forEach(function(note) {
 /// GENERAZIONE CHORDS
 
 var chord_list = Tonal.chord.names(); //aggiungere a mano degli accordi mancanti, vedere la table dei valori di tension,dissonance e modality, alcuni accordi sono acessibili tramite Tonal.Chords.notes("name") ma non vengono indicizzati dalla funzione .names, devo aggiungerli a mano 
-chord_list.push("aug"); chord_list.push("6"); chord_list.push("aug7"); chord_list.push("7sus4"); chord_list.push("dim7"); chord_list.push("sus4"); chord_list.push("dim"); chord_list.push("m6");
+chord_list.push("aug"); chord_list.push("6"); chord_list.push("aug7"); chord_list.push("7sus4"); chord_list.push("dim7"); chord_list.push("sus4"); chord_list.push("dim"); chord_list.push("m6"); chord_list.push("7"); chord_list.push("M"); chord_list.push("m"); chord_list.push("m7"); chord_list.push("m7b5"); chord_list.push("M7"); 
 var chord_list_length = chord_list.length;
 function addTable() {
   var myTableDiv = document.getElementById("chord-selector");
@@ -242,6 +242,7 @@ var parameters_table = {
 	M:{D:3.944,T:1.1606,M:5.3893},
 	7:{D:5.1847,T:2.059,M:2.8712},
 	aug:{D:4.99,T:6.173,M:1.495},
+    M7:{D:4.843,T:0.803,M:1.1932},
 	6:{D:4.962,T:1.2287,M:0.94456},
 	aug7:{D:6.14,T:4.16,M:0.632},
     m7b5:{D:6.12226,T:2.6665,M:0.29159},
@@ -254,9 +255,10 @@ var parameters_table = {
 	m6:{D:5.494,T:1.5,M:-2.714},
 	m:{D:4.06,T:1.19,M:-5.117},
 
-    myMethod: function(params) {
+     myMethod: function(params) {
       console.log(params);
       console.log(this[params]);
+		  return this[params];
     }
 };
 
@@ -304,7 +306,7 @@ function light_chord(color){
         
     [].forEach.call(selected_notes, function (element) {
         [].forEach.call(element, function (note){
-            console.log(note);
+            //console.log(note);
              note.style.background=color;   
             });
         });
@@ -321,7 +323,28 @@ var selected_chord_function = function(){
     innerHTML));
     full_chord = fundamental_notes+chord_type;
     console.log(full_chord);
-    var color = 'red'
+    var color;
+    if(parameters_table[chord_type]!= null){
+        console.log("parametro esistente");
+        var D =parameters_table[chord_type].D;
+        console.log(D);
+        var M = parameters_table[chord_type].M;
+        console.log(M);
+        var T =  parameters_table[chord_type].T;
+        console.log(T);
+        var h =(1.632 + 0.221*M - 0.159*T - 0.423*D)*180/3.14 ;
+        var s = (0.885+0.015*M-0.042*D)*100;
+        var l = (0.475+0.018*M-0.021*T)*100;
+        console.log("hue,saturation and luminance:");
+        console.log(h,s,l);
+
+        color = 'hsl('+h+',' +s+ '%,' + l +'%)';
+    } else{
+        color='red';
+    }
+    
+    
+    
     //METTERE UN IF CON LA CONDIZIONE SUL TIPO DI ACCORDO (MAJ, MINOR, AUG ECC...), E CHECKARE NELLA TABELLA. SE ESISTE, CALCOLO IL COLORE TRAMITE LA FUNZIONE DEL PAPER E LO PASSO ALLA FUNZIONE light_color(color), altrimenti setto di default 'red'.
     light_chord(color);
     
