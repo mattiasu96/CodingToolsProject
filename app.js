@@ -16,6 +16,7 @@ delimiter: '\n' //Delimiter for reding serial input, be sure it's \n in the Ardu
 
 var server = http.createServer(function(request, response){
     var path = url.parse(request.url).pathname;
+    console.log("Printo il percorso:"+ path);
 
     switch(path){
         case '/':
@@ -26,6 +27,7 @@ var server = http.createServer(function(request, response){
         case '/socket.html': //se il path scritto è "url/socket.html, mi carica l'html chiamato socket. Sarà la mia homepage.
             //NB: DEVO FARGLI CHIAMARE LA PAGINA CON IL MIO PAD IMPLEMENTATO, ALLA QUALE DEVO AGGIUNGERE LA FUNZIONE DI RICEZIONE DEI MESSAGGI PRESENTE
             // NEL FILE socket.html
+            console.log("printo il percorso di accesso:"+__dirname + path);
             fs.readFile(__dirname + path, function(error, data){
                 if (error){
                     response.writeHead(404);
