@@ -15,11 +15,15 @@ delimiter: '\n' //Delimiter for reding serial input, be sure it's \n in the Ardu
 
 });
 
-app.use(express.static(path.join(__dirname, 'Pad')));
 
 app.get('/', function(req, res) {
-    res.redirect('index.html');
+   // res.redirect('index.html');
+    res.status(200);
+    res.sendFile(path.join(__dirname,"Pad","socket.html"));
 });
+app.use(express.static(path.join(__dirname, 'Pad')));
+
+
 
 
 /*app.get('/', function (req, res) {
