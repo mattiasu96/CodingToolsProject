@@ -1,6 +1,8 @@
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var  path = require('path');
+var express = require('express');
 const SerialPort = require('serialport');
 const parsers = SerialPort.parsers;
 
@@ -13,11 +15,19 @@ delimiter: '\n' //Delimiter for reding serial input, be sure it's \n in the Ardu
 
 });
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/socket.html');
+app.use(express.static(path.join(__dirname, 'Pad')));
+
+app.get('/', function(req, res) {
+    res.redirect('index.html');
 });
+
+
+/*app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/socket.html');
+});*/
 server.listen(5000);
 port.pipe(parser);
+
 
 io.on('connection', function(socket){ //è un listener. Il server attende una connessione, una volta detectata la connessione esegue questo codice
     console.log('1 connection');
