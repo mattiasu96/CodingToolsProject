@@ -213,7 +213,47 @@ for n=2:2
 end
 
 xlabel('2nd interval (semitones)'); ylabel('Tension(T)'); grid on;
-%%
- x = 0:pi/100:2*pi;
-y = sin(x);
-plot(x,y)        
+%% Modality curves
+
+
+figure();
+for n=2:2
+    m =3.0; 
+    for l=0:0.01:12.0-m
+        LF0=261.63;
+        MF0=2^(m/12)*LF0;
+        HF0=2^(l/12)*MF0;
+        for s=1:n^3
+            i=round(mod(s-1,n)+1);  %%queste i,j,k sono gli indici moltiplicativi per ottenere per ciascuna fondamentale 
+            %(LF0,MF0 e HF0) le relative armoniche. Il ciclo for con s mi
+            %restituisce tutte le possibili combinazioni di triadi senza
+            %ripetizioni, quindi le triadi uniche. Tali triadi inoltre non
+            %hanno duplicati di armonici (non prendo in considerazione in
+            %una triade più volte la medesima nota/elemento). Per sapere il
+            %numero di combinazioni uniche di x elementi dato un insieme di
+            %n elementi, vedere calcolo combinatorio
+            j=round(mod((s-i)/n,n)+1);
+            k=round((s-n*(j-1)-i)/(n^2)+1);
+            
+            freq(s,1) = LF0.*i;
+            freq(s,2)=MF0.*j;
+            freq(s,3)=HF0.*k;
+            
+            freq(s,:)=sort(freq(s,:));
+            
+            amp(s,1)=1.^(i-1);
+            amp(s,2)=1.^(j-1);
+            amp(s,3) = 1.^(k-1);
+        end
+        DI=12*log2((freq(:,2).^2).*(1./(freq(:,1).*freq(:,3)))); %%il 12log2 converte una differenza in hertz in semitoni.
+        %l'equazione successiva è lo sviluppo di quella data all'inizio di
+        %log(f3/f2)-log(f2/f1)
+        V=amp(:,1).*amp(:,2).*amp(:,3);
+        M=V.*((2.*DI./1.56).*exp((-(DI.^4)./4)));
+        hold on; plot(l,1/6*sum(M), 'o');
+        
+        
+       
+    end
+end
+
