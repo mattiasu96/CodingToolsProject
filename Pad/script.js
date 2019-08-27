@@ -101,6 +101,8 @@ var ac =  new AudioContext();
      returnedObject["value2"] = lfo;
      return returnedObject;}
 var test = play(); */  //RITORNA I VALORI VOLUTI DI OSC E LFO 
+    var freq = 17;
+
 function play() {
     x =  event.target.title;
     var mynote;
@@ -108,7 +110,6 @@ function play() {
     console.log(mynote);
   //prima prende il valore dall'html (ho il value inserito)
    // var freq = $('#freq').val();
-    var freq = 17;
  
     //var ffreq = $('#ffreq').val();
     var ffreq = 1000;

@@ -183,6 +183,10 @@
         
         socket.on('message', function(data){
         console.log(data.message);
+        var mydata= data.message.substr(0,data.message.indexOf(' '));   
+        console.log("printo primo valore:"+ mydata);
+        freq = mydata;
+          
         });
     </script>
 </body>
