@@ -21,7 +21,7 @@ The software pad is an `HTML` webpage. It includes a library of chords and it's 
 
 The _pad_ has this view:
 
-![Image description](https://imgur.com/966YdFY)
+![Image description](https://i.imgur.com/966YdFY.png)
 
 To start the code:
 1) Access the repository with App.js file and run on windows CMD "Node app.js".
