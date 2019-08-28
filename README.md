@@ -47,7 +47,7 @@ To run the project:
 3. **Connect** the **Arduino** to the relative USB port. **NB**: Read the paragraph [Technology considerations](#Project-description) in order to properly connect the **Arduino** to your PC.
 4. **Access** the repository  with the [Server code](app.js) (which is the main directory) using the command line on windows (you can run `cd directoryname` in the command line to access to a subdirectory of the current directory). Then run `node app.js`.
 
-5. **Open** the browser and go to `http://localhost:5000` (you can change the port number accordingly to what it's written inside the [Server code](app.js) (line 35), the `index.html` file it's what the client is asking to the server, it will answer with the page requested)
+5. **Open** the browser and go to `http://localhost:5000` (you can change the port number accordingly to what it's written inside the [Server code](app.js) (line 35), the `index.html` is the requeste file by the client) 
 
 NB: connect the arduino to the first USB port on the right of the computer (this is valid only in my case, it's just a reminder for myself)
 
