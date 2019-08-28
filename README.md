@@ -40,7 +40,7 @@ The analog input of the **Arduino** board have been connected to 9 copper plates
 
 **INSERIRE DESCRIZIONE PRECISA, FOTO E SCHEMATICS DEL CIRCUITO** 
 
-
+## Getting started
 To start the code:
 1) Access the repository with App.js file and run on windows CMD "Node app.js".
 
