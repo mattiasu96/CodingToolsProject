@@ -23,6 +23,9 @@ The _pad_ has this view:
 
 ![Image description](https://i.imgur.com/966YdFY.png)
 
+As shown in the figure, it's composed by two main elements:
+1. Note matrix: the colored pad on the right shows all the notes placed at vertical interval of fifth (musical interval) 
+
 To start the code:
 1) Access the repository with App.js file and run on windows CMD "Node app.js".
 
