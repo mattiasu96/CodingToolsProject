@@ -58,7 +58,7 @@ To run the project:
 
 4. **Does the local server introduce any problems?**: <br />Absolutely yes.<br />The problem with this approach is the reduced **_accessibility_**. <br /> The user has to manually run the **_server_**, the project as a whole can't be made accessible on the _world wide web_ (at least, not with its full functionalities).  
 NB: connect the arduino to the first USB port on the right of the computer (this is valid only in my case, it's just a reminder for myself)
-
+5. **Why only 9 copper plates? Does this reduce resolution?** <br /> Yes. <br /> The number of plates is the maximum number connectable to the analog inputs of an **Arduino** unit. A higher number of plates with smaller dimension would improve the resolution of the **_hardware pad_**. Furthermore the **Arduino** unit is not powerful enough for processing that amount of data in real time.
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
 If i change the html file, i have to change also the address inserted: http://localhost:5000/Pad/index.html like this 
