@@ -13,7 +13,7 @@ https://libraries.io/npm/chord-dictionary
 An external electro-magnetic pad has been added in order to furtherly enhance the engagement of children, they can play with the pad in order to modify the sound that has been played.
 
 As mentioned above, the project is divided in two macro areas: the **_software pad_** and the **_hardware pad_.**
-
+## Project description
 
 ### Software Pad
 
@@ -32,7 +32,7 @@ In the following image a C major chord has been selected:
 
 ![C Major Chord](https://i.imgur.com/NAaE0Y3.png)
 
-## Hardware pad
+### Hardware pad
 
 The software pad has been realized using an **Arduino** unit (inserire qui tipo di arduino). 
 
