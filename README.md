@@ -44,7 +44,7 @@ The analog input of the **Arduino** board have been connected to 9 copper plates
 To run the project:
 1. **Download** the repository containing all the needed code. This should also include all the external Javascript libraries (you can still find a complete list of used libraries at the end of the `readme`).
 2. **Build** the circuit as shown in the previous schematic and install the [Arduino code](pad9pad.ino).
-3. **Connect** the **Arduino** to the relative USB port. **NB**: Read the paragraph [Technology considerations](#Technology-consideration) in order to properly connect the **Arduino** to your PC.
+3. **Connect** the **Arduino** to the relative USB port. **NB**: Read the paragraph [Technology considerations](#Technology-considerations) in order to properly connect the **Arduino** to your PC.
 4. **Access** the repository  with the [Server code](app.js) (which is the main directory) using the command line on windows (you can run `cd directoryname` in the command line to access to a subdirectory of the current directory). Then run `node app.js`.
 
 5. **Open** the browser and go to `http://localhost:5000` (you can change the port number accordingly to what it's written inside the [Server code](app.js) (line 35), the `index.html` is the requeste file by the client)
