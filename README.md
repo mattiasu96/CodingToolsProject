@@ -32,6 +32,14 @@ In the following image a C major chord has been selected:
 
 ![C Major Chord](https://i.imgur.com/NAaE0Y3.png)
 
+## Hardware pad
+
+The software pad has been realized using an **Arduino** unit (inserire qui tipo di arduino). 
+The analog input of the **Arduino** board have been connected to 9 copper plates. Each plates works as an **_electro-magnetic_** field generator, when the hand is moved over the plates, it "_disturbs_" the magnetic field, so it's possible to calculate its position by the amount of _disturbance_ that each plate "_feels_". 
+
+**INSERIRE DESCRIZIONE PRECISA, FOTO E SCHEMATICS DEL CIRCUITO** 
+
+
 To start the code:
 1) Access the repository with App.js file and run on windows CMD "Node app.js".
 
