@@ -15,7 +15,7 @@ An external electro-magnetic pad has been added in order to furtherly enhance th
 As mentioned above, the project is divided in two macro areas: the **_software pad_** and the **_hardware pad_.**
 
 
-## Software Pad
+### Software Pad
 
 The software pad is an `HTML` webpage. It includes a library of chords and it's responsible for the actual triggering and generation of sound events.
 
