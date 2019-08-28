@@ -68,7 +68,7 @@ setInterval(updateGradient,10);
 //LCD Display -------------------------------
 lcdRGB.lcdNew("lcd1", ".hello");
 
-lcdRGB.writeRow("lcd1","Kaoss Pad", 0);
+lcdRGB.writeRow("lcd1","Pad O' Color", 0);
 //LCD display  --------------------------------------
 
 
