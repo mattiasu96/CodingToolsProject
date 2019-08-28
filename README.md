@@ -24,7 +24,7 @@ The _pad_ has this view:
 ![Pad view](https://i.imgur.com/966YdFY.png)
 
 As shown in the figure, it's composed by two main elements:
-1. **Notes pad**: the colored pad on the right shows all the notes placed at vertical interval of fifth (musical interval), this allows (as explained later in the readme) to show **geometric patterns** of chords. <br />  This part is also responsible for triggering sound events: overing over a **_hexagonal cell_** will generate a sound with the corresponding note of the **_cell_**.
+1. **Notes pad**: the colored pad on the right shows all the notes placed at vertical interval of fifth (musical interval), this allows (as explained later in the `readme`) to show **geometric patterns** of chords. <br />  This part is also responsible for triggering sound events: overing over a **_hexagonal cell_** will generate a sound with the corresponding note of the **_cell_**.
 2. **Chords matrix**: the grey colored matrix on the left shows a dictionary of many different type of chords. <br /> 
 Selecting a chords will light up all the **_hexagonal cells_** containing the notes of the selected chord.
 
@@ -42,8 +42,9 @@ The analog input of the **Arduino** board have been connected to 9 copper plates
 
 ## Getting started
 To run the project:
-1. **Download** the repository containing all the needed code. This should also include all the external Javascript libraries (you can still find a complete list of used libraries at the end of the readMe).
+1. **Download** the repository containing all the needed code. This should also include all the external Javascript libraries (you can still find a complete list of used libraries at the end of the `readme`).
 2. **Build** the circuit as shown in the previous schematic and install the [Arduino code](pad9pad.ino).
+3. Connect the **Arduino** to the relative USB port. NB: Read the paragraph [create an anchor](#Project-description)
 3. **Access** the repository  with the [Server code](app.js) (which is the main directory) using the command line on windows (you can run `cd directoryname` in the command line to access to a subdirectory of the current directory). Then run `node app.js`.
 
 4. **Open** the browser and go to `http://localhost:5000` (change the port number accordingly to what it's written inside the code, the socket.html it's what he's asking to the client, he will answer with the page ande the connection)
