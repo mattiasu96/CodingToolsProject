@@ -102,23 +102,16 @@ var ac =  new AudioContext();
      return returnedObject;}
 var test = play(); */  //RITORNA I VALORI VOLUTI DI OSC E LFO 
     var freq = 17;
-
 function play() {
     x =  event.target.title;
     var mynote;
     mynote = Tonal.freq(x);
     console.log(mynote);
-  //prima prende il valore dall'html (ho il value inserito)
-   // var freq = $('#freq').val();
- 
-    //var ffreq = $('#ffreq').val();
+  
     var ffreq = 1000;
     
-    //var depth = $('#depth').val();
     var depth = 50;
 
-    
-    //var Q = $('#Q').val();
     var Q = 0;
 
     var osc = ac.createOscillator();
