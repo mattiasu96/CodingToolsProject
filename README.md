@@ -6,6 +6,9 @@ https://libraries.io/npm/tonal-progressions
 https://libraries.io/npm/teoria
 https://libraries.io/npm/tonal-chord
 https://libraries.io/npm/chord-dictionary
+# Pad 'O Color
+Pad 'O Color is a device thought for children. It's goal is to map chords to geometry shapes and colors, in order to exploit visual memory, memorize chords and their sound, creating a co-dipendence between the ***temporal lobe*** (responsible for memory and hearing) and the ***occipital lobe*** (responsible for vision).
+An external electro-magnetic pad has been added in order to furtherly enhance the engagement of children, they can play with the pad in order to modify the sound that has been played.
 
 
 To start the code:
