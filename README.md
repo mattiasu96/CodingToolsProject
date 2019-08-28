@@ -29,6 +29,7 @@ As shown in the figure, it's composed by two main elements:
 Selecting a chords will light up all the **_hexagonal cells_** containing the notes of the selected chord.
 
 In the following image a C major chord has been selected:
+
 ![C Major Chord](https://i.imgur.com/NAaE0Y3.png)
 
 To start the code:
