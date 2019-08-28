@@ -60,6 +60,11 @@ To run the project:
 NB: connect the arduino to the first USB port on the right of the computer (this is valid only in my case, it's just a reminder for myself)
 5. **Why only 9 copper plates? Does this reduce resolution?** <br /> Yes. <br /> The number of plates is the maximum number connectable to the analog inputs of an **Arduino** unit. A higher number of plates with smaller dimension would improve the resolution of the **_hardware pad_**.<br /> Furthermore the **Arduino** unit is not powerful enough for processing that amount of data in real time.
 
+## Scientific background
+
+Many scientific papers have been used to build this project, in particular the part regarding of mapping colors to chords.
+
+### Calculate chords _parameters_ 
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
