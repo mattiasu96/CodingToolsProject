@@ -41,8 +41,10 @@ The analog input of the **Arduino** board have been connected to 9 copper plates
 **INSERIRE DESCRIZIONE PRECISA, FOTO E SCHEMATICS DEL CIRCUITO** 
 
 ## Getting started
-To start the code:
-1) Access the repository with App.js file and run on windows CMD "Node app.js".
+To run the project:
+1. Download the repository containing all the needed code. This should also include all the external Javascript libraries (you can still find a complete list of used libraries at the end of the readMe).
+2. Build the circuit as shown in the previous schematic and install the [Arduino code](pad9pad.ino).
+2. Access the repository with App.js file and run on windows CMD "Node app.js".
 
 2) Once it's running, open the browser and go to "http://localhost:5000/socket.html" (change the port number accordingly to what it's written inside the code, the socket.html it's what he's asking to the client, he will answer with the page ande the connection)
 
