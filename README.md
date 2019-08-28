@@ -47,8 +47,10 @@ To run the project:
 3. **Connect** the **Arduino** to the relative USB port. **NB**: Read the paragraph [Technology considerations](#Project-description) in order to properly connect the **Arduino** to your PC.
 4. **Access** the repository  with the [Server code](app.js) (which is the main directory) using the command line on windows (you can run `cd directoryname` in the command line to access to a subdirectory of the current directory). Then run `node app.js`.
 
-5. **Open** the browser and go to `http://localhost:5000` (you can change the port number accordingly to what it's written inside the [Server code](app.js) (line 35), the `index.html` is the requeste file by the client) 
+5. **Open** the browser and go to `http://localhost:5000` (you can change the port number accordingly to what it's written inside the [Server code](app.js) (line 35), the `index.html` is the requeste file by the client)
 
+## Technology considerations 
+1. **Why use javascript?**: <br /> The great availability of libraries and framework made easy the implementation of graphic and audio content. In particular the ![Web Audio Api](https://developer.mozilla.org/it/docs/Web/API/Web_Audio_API)
 NB: connect the arduino to the first USB port on the right of the computer (this is valid only in my case, it's just a reminder for myself)
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
