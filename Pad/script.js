@@ -86,7 +86,10 @@ notes = document.querySelectorAll(".hex");
 Tone.context.resume();
 var ac =  new AudioContext();
 
-    var test;
+    var test={
+        value1: null,
+        value2: null,
+    };
     var freq = 17;
 function play() {
     x =  event.target.title;
