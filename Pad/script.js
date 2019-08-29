@@ -86,21 +86,7 @@ notes = document.querySelectorAll(".hex");
 Tone.context.resume();
 var ac =  new AudioContext();
 
-//NB questa soluzione in teoria funziona, in pratica mi da errore perchè non posso richiamare start 2 volte sullo stesso elemento (nodo). Una volta che lo stoppo non posso più ristartarlo. Quello che dovrei fare è o re-inserirlo nella funzione play, così ogni volta che è chiamata crea delle variabili locali che poi vengono distrutte, quindi la funzione start e stop lavora su variabili create nuove. Altrimenti invece di stop (se inserisco la definizione di osc e lfo all'esterno della funzione play) uso connect e disconnect.
-//var osc = ac.createOscillator();
-//var lfo = ac.createOscillator();
 
-// REIMPLEMENTA LA FUNZIONE PLAY TRAMITE DEFINIZIONE + VARIABILE ALTRIMENTI NON FUNZIONA : BREVE ESEMPIO
-
-/* function play(){
-        var osc = ac.createOscillator();
-    var lfo = ac.createOscillator();
-     osc.frequency.value=1000;
-	returnedObject={};
-      returnedObject["value1"] = osc;
-     returnedObject["value2"] = lfo;
-     return returnedObject;}
-var test = play(); */  //RITORNA I VALORI VOLUTI DI OSC E LFO 
     var freq = 17;
 function play() {
     x =  event.target.title;
@@ -153,14 +139,12 @@ function play() {
     
 };
 var test;
+
 notes.forEach(function(note) {
     note.addEventListener("mouseover", () => (test = play()));
 });
 
 
-// Ho un problema di scope, questa funzione non ha accesso agli osc e lfo dichiarati nella funzione play 
-// test.value1.stop(ac.currentTime); Ora ho il return nella funzione play, inserisco questo nella funzione stop.
-// NB: così funziona, tuttavia se uso multiple notes, rischio di perdere la reference sul singolo oscillatore e quindi non posso più stopparlo, in quanto sovrascrivo la reference di test.
 var stop = function () {
    x =  event.target.title;
    test.value1.stop(ac.currentTime);
@@ -292,12 +276,9 @@ fundamental_notes_html.forEach(function(note) {
 function light_chord(color){
         chord_notes = Tonal.Chord.notes(full_chord);
         console.log("Printo le chords notes:"+chord_notes);
-     //ADESSO DEVO INSERIRE IL CUSTOM COLOR UTILIZZANDO IL PAPER. PER FAR CIO' CONVIENE UTILIZZARE UN OGGETTO CHE RAPPRESENTA LA TABELLA CON I DATI, LE VARIABILI CHE RAPPRESENTANO IL TIPO DI ACCORDO E POI CIASCUNA VAFIABILE HA 3 ENTRIES CHE SONO I VALORI DI TENSIONE, DISSONANCE E MODALITY. DOPO DI CHE INSERISCO UN METODO CHIAMABILE NELL'OGGETTO CHE RESITUISCE I 3 VALORI ASSOCIATI ALLA SIGLA PASSATA NELLA CHIAMATA 
         
      var selected_notes = chord_notes.map(title => document.getElementsByClassName(title));
-    
-    //var selected_notes = chord_notes.map(title => document.querySelectorAll(`[note="${title}"]`));
-        
+            
     [].forEach.call(selected_notes, function (element) {
         [].forEach.call(element, function (note){
             //console.log(note);
@@ -340,9 +321,6 @@ var selected_chord_function = function(){
         color='red';
     }
     
-    
-    
-    //METTERE UN IF CON LA CONDIZIONE SUL TIPO DI ACCORDO (MAJ, MINOR, AUG ECC...), E CHECKARE NELLA TABELLA. SE ESISTE, CALCOLO IL COLORE TRAMITE LA FUNZIONE DEL PAPER E LO PASSO ALLA FUNZIONE light_color(color), altrimenti setto di default 'red'.
     light_chord(color);
     
 };
