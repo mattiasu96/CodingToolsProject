@@ -86,7 +86,7 @@ notes = document.querySelectorAll(".hex");
 Tone.context.resume();
 var ac =  new AudioContext();
 
-
+    var test;
     var freq = 17;
 function play() {
     x =  event.target.title;
@@ -138,7 +138,7 @@ function play() {
     
     
 };
-var test;
+
 
 notes.forEach(function(note) {
     note.addEventListener("mouseover", () => (test = play()));
