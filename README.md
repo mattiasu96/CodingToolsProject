@@ -61,7 +61,7 @@ NB: connect the arduino to the first USB port on the right of the computer (this
 
 5. **How do i connect my Arduino?**<br /> Just plug the USB port of your **Arduino** to an USB port of your PC. <br /> You have to be sure of choosing the correct USB port, the selection is made in [Server code](app.js) at line 10. You have to change the name of the port `COM3` with the USB port name of your PC that you decide to use. <br /> Connect your **Arduino** unit to any USB port you like, go to **_device manager_** and check the name of the serial port connected, then copy it into the code.
 
-6. **Why only 9 copper plates? Does this reduce resolution?** <br /> Yes. <br /> The number of plates is the maximum number connectable to the analog inputs of an **Arduino** unit. A higher number of plates with smaller dimension would improve the resolution of the **_hardware pad_**.<br /> Furthermore the **Arduino** unit is not powerful enough for processing that amount of data in real time.
+6. **Why only 9 copper plates? Does this reduce resolution?** <br /> Yes. <br /> The number of plates is the maximum number connectable to the analog inputs of an **Arduino** unit. A higher number of plates with smaller dimension would improve the resolution of the **_hardware pad_**.<br /> Furthermore the **Arduino** unit is not powerful enough to process that amount of real time data.
 
 ## Scientific background
 
