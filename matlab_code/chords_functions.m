@@ -67,8 +67,10 @@ dtot=d1+d2+d3;
 range=2.3; inc=0.01; diss=[0];
 %
 % call function dissmeasure for each interval
-%
-freq = [500 1.86*500]; amp = [10 10];
+%NB: NOTA COME SE GLI ARMONICI SONO PRECISI (OSSIA F=f0*N con N intero), IL
+%GRAFICO DELLA DISSONANZA E' PRECISO SULL'OTTAVA, ALTRIMENTI E'
+%STRETCHATO/COMPRESSO. VEDERE IL SITO DI SETHARES PER MAGGIORI INFO.
+freq = [500 2*500]; amp = [10 10];
 %qui stabilisco con alpha quali siano i multipli della fondamentale della
 %quale tracciare la dissonanza. Praticamente ho una frequenza fondamentale
 %con i suoi n armonici, dopo di che inizio a scandire incrementando la
