@@ -50,7 +50,7 @@ To run the project:
 5. **Open** the browser and go to `http://localhost:5000` (you can change the port number accordingly to what it's written inside the [Server code](app.js) (line 35), the `index.html` is the requeste file by the client)
 
 ## Technology considerations 
-1. **Why use javascript?** <br /> The great availability of libraries and framework made easy the implementation of graphic and audio content. In particular the [Web Audio Api](https://developer.mozilla.org/it/docs/Web/API/Web_Audio_API) and [Tone.js](https://tonejs.github.io) simplify the creation and management of sound path and audio generation.
+1. **Why use javascript?** <br /> The great availability of libraries and framework made easy the implementation of graphic and audio content. In particular the [Web Audio Api](https://developer.mozilla.org/en/docs/Web/API/Web_Audio_API) and [Tone.js](https://tonejs.github.io) simplify the creation and management of sound path and audio generation.
 
 2. **Is javascript the best solution?** <br />  Yes and no. For the standalone application (only the **_software pad_**) javascript and the browser approach are pretty good solution: _no installation required_, _accessible from everywhere_ and _client hardware/software independent_. <br /> On the other hand, the use of an external hardware is pretty _tricky_: the browser **_completely blocks_** any access to peripheral device by default (for safety reasons).<br /> Solutions for enabling the access to the external devices have not been investigated (maybe it's possible, maybe not), this leads to the following point.
 
