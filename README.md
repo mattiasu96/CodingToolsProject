@@ -68,7 +68,8 @@ NB: connect the arduino to the first USB port on the right of the computer (this
 Many scientific papers have been used to build this project, in particular the part regarding of mapping colors to chords.
 
 ### Calculate chords _parameters_ 
-
+In order to map chords to colors, 3 main _features_ have been used: **_dissonance_**, **_tension_** and **_modality_**.
+#### 1) Chord dissonance
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
 If i change the html file, i have to change also the address inserted: http://localhost:5000/Pad/index.html like this 
