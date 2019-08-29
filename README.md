@@ -76,6 +76,7 @@ The dissonance calculation is based on a model of the perceived **_dissonance_**
 The dissonance has been calculated following Sethares definition that can be found here: [local dissonance definition](http://sethares.engr.wisc.edu/paperspdf/consonance.pdf).
 
 Basically what we're doing is model the function in the picture, then we apply it for each couple of frequencies.
+![Dissonance plot](http://sethares.engr.wisc.edu/images/image3.gif)
 **NB:** The mathematical functions in the paper can be misleading, we're considering all the unique couples of frequencies, not duplicates and not unisons (look at [dissonance function](/matlab_code/dissmeasure.m)).
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
