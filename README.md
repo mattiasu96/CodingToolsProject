@@ -73,7 +73,11 @@ In order to map chords to colors, 3 main _features_ have been used: **_dissonanc
 The **_chords dissonance_** measures the total dissonance of a chord. <br />
 The dissonance calculation is based on a model of the perceived **_dissonance_** of two frequencies: the human hear is composed of many different biological **_band pass filters_** also called **_critical bands_**, when two frequencies are too close, the brain is not capable of recognizing them very well, this leads to a not pleasant feeling when two notes or frequencies are played together.<br /> For more details look here: [dissonance explained](http://hep.physics.indiana.edu/~rickv/consonance_and_dissonance.html)
 
-The dissonance has been calculated following Sethares definition:
+The dissonance has been calculated following Sethares definition that can be found here: [local dissonance definition](http://sethares.engr.wisc.edu/paperspdf/consonance.pdf).
+
+Basically what we're doing is model the function in the picture, then we apply it for each couple of frequencies.
+**NB:** The mathematical functions in the paper can be misleading, we're considering all the unique couples of frequencies, not duplicates and not unisons (look at [dissonance function](/matlab_code/dissmeasure.m)).
+
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
 If i change the html file, i have to change also the address inserted: http://localhost:5000/Pad/index.html like this 
