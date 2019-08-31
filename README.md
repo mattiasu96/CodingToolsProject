@@ -88,7 +88,11 @@ The behavior can be modeled with a **_gaussian function_**:
 
 ![Tension plot](https://www.researchgate.net/profile/Takashi_Fujisawa/publication/238730240/figure/download/fig2/AS:298725349052420@1448233081944/A-model-of-harmonic-tension-The-factor-determining-the-tension-of-the-triad-is-the.png)
 
-Where the x axis represent the total difference between the two intervals of the three note chord. 
+Where the x axis represent the total difference between the two intervals of the three note chord measured in semitones.  
+
+**For example**: if we have a **C diminished** chord **_C-Eb-Gb_**, from _C_ to _Eb_ we have an interval of 3 semitones. Between _Eb_ and _Gb_ we have also an interval of 3 semitones. Now we make the difference 3-3 = 0, this leads to maximum tension as shown in the picture.
+
+
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
 If i change the html file, i have to change also the address inserted: http://localhost:5000/Pad/index.html like this 
