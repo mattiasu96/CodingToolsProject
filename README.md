@@ -81,6 +81,14 @@ Basically what we're doing is model the function in the picture, then we apply i
 
 **NB:** The mathematical functions in the paper can be misleading, we're considering all the unique couples of frequencies, not duplicates and not unisons (look at [dissonance function](/matlab_code/dissmeasure.m)).
 
+#### 1) Chord tension:
+Chord tension takes into account the behavior of triplets of frequencies. From the literature ([The Psychophysics of Harmony Perception:
+Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf)) it's known that triplets with equal interval distance (each note has the same interval with the previous) generate a **_tension_** feeling. 
+The behavior can be modeled with a **_gaussian function_**:
+
+![Tension plot](https://www.researchgate.net/profile/Takashi_Fujisawa/publication/238730240/figure/download/fig2/AS:298725349052420@1448233081944/A-model-of-harmonic-tension-The-factor-determining-the-tension-of-the-triad-is-the.png)
+
+Where the x axis represent the total difference between the two intervals of the three note chord. 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
 If i change the html file, i have to change also the address inserted: http://localhost:5000/Pad/index.html like this 
