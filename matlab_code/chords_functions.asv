@@ -23,7 +23,7 @@ x=log(f2/f1);
 d=exp(-3.51*s*(x))-exp(-5.75*s*(x));
 
 %% test dissonance a mano
-%Calculus of dissonance by hand. Si discosta dal modello del paper di
+%Calculus of dissonance by hand Si discosta dal modello del paper di
 %qualche piccolo valore (dato dai valori di amplitude delle armoniche + valori della funzione), ma l'andamento è coerente: Major ha dissonanza
 %minore dell'accordo minore, e augmented ha dissonanza maggiore
 %dell'accordo minore
