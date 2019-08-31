@@ -81,7 +81,7 @@ Basically what we're doing is model the function in the picture, then we apply i
 
 **NB:** The mathematical functions in the paper can be misleading, we're considering all the unique couples of frequencies, not duplicates and not unisons (look at [dissonance function](/matlab_code/dissmeasure.m)).
 
-#### 1) Chord tension:
+#### 2) Chord tension:
 Chord tension takes into account the behavior of triplets of frequencies. From the literature ([The Psychophysics of Harmony Perception:
 Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf)) it's known that triplets with equal interval distance (each note has the same interval with the previous) generate a **_tension_** feeling.<br /> 
 The behavior can be modeled with a **_gaussian function_**:
@@ -90,7 +90,12 @@ The behavior can be modeled with a **_gaussian function_**:
 
 Where the x axis represent the total difference between the two intervals of the three note chord measured in semitones.  
 
-**For example**: if we have a **C diminished** chord **_C-Eb-Gb_**, from _C_ to _Eb_ we have an interval of 3 semitones. Between _Eb_ and _Gb_ we have also an interval of 3 semitones. Now we make the difference 3-3 = 0, this leads to maximum tension as shown in the picture.
+**For example**: if we have a **C diminished** chord **_C-Eb-Gb_**, from _C_ to _Eb_ we have an interval of 3 semitones, between _Eb_ and _Gb_ we have also an interval of 3 semitones. Now we make the difference 3-3 = 0, this leads to maximum tension as shown in the picture.
+
+The **_chord tension_** has been calculated in [Matlab code](/matlab_code/chords_functions.m) following the formulas in ([The Psychophysics of Harmony Perception:
+Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf)). 
+
+As mentioned above, the formulas in the paper are misleading: the tension is calculated iterating over all the unique triplets of frequencies (no unisons, no duplicates, no triplets with 2 equal frequencies and one different) considering also harmonics if present.
 
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
