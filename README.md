@@ -95,7 +95,7 @@ Where the x axis represent the total difference between the two intervals of the
 The **_chord tension_** has been calculated in [Matlab code](/matlab_code/chords_functions.m) following the formulas in ([The Psychophysics of Harmony Perception:
 Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf)). 
 
-As mentioned above, the formulas in the paper are misleading: the tension is calculated iterating over all the unique triplets of frequencies (no unisons, no duplicates, no triplets with 2 equal frequencies and one different) considering also harmonics if present.
+As mentioned above, the formulas in the paper are misleading: the tension is calculated iterating over all the unique triplets of frequencies  considering also harmonics if present (no unisons, no duplicates, no triplets with 2 equal frequencies and one different).
 
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
