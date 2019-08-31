@@ -83,7 +83,7 @@ Basically what we're doing is model the function in the picture, then we apply i
 
 #### 1) Chord tension:
 Chord tension takes into account the behavior of triplets of frequencies. From the literature ([The Psychophysics of Harmony Perception:
-Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf)) it's known that triplets with equal interval distance (each note has the same interval with the previous) generate a **_tension_** feeling. 
+Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf)) it's known that triplets with equal interval distance (each note has the same interval with the previous) generate a **_tension_** feeling.<br /> 
 The behavior can be modeled with a **_gaussian function_**:
 
 ![Tension plot](https://www.researchgate.net/profile/Takashi_Fujisawa/publication/238730240/figure/download/fig2/AS:298725349052420@1448233081944/A-model-of-harmonic-tension-The-factor-determining-the-tension-of-the-triad-is-the.png)
