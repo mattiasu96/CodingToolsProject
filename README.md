@@ -2,7 +2,8 @@
 Useful Resources: http://danielnill.com/nodejs-tutorial-with-socketio
                   https://hackernoon.com/arduino-serial-data-796c4f7d27ce
 
-https://libraries.io/npm/tonal-progressions
+https://li
+aries.io/npm/tonal-progressions
 https://libraries.io/npm/teoria
 https://libraries.io/npm/tonal-chord
 https://libraries.io/npm/chord-dictionary
@@ -99,8 +100,11 @@ As mentioned above, the formulas in the paper are misleading: the tension is cal
 
 
 #### 3) Chord modality:
-However, the chord tension is useful only to model the _tension_ of the chord, that can be reduced to a "_binary_" detection of equal or non equal simmetry of the intervals, this gives us informations only about the _resolved_ or _unresolved_ type of chords.
+However, the chord tension is useful only to model the _tension_ of the chord, that can be reduced to a "_binary_" detection of equal or non equal simmetry of the intervals, this gives us informations only about the _resolved_ or _unresolved_ type of chords. <br /> 
 Therefore we need something to model the obvious difference between a **_Major_** and a **_Minor_** chord.
+
+As mentioned in [The Psychophysics of Harmony Perception:
+Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf) (even if there are some influences by the western music culture) it's undeniable that **_minor chords_** are perceived more as _sad_, _weak_ and _dark_, while **_major chords_** are perceived more as _happy_, _strong_ and _bright_. 
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
