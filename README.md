@@ -70,7 +70,7 @@ Many scientific papers have been used to build this project, in particular the p
 
 ### Calculate chords _parameters_ 
 In order to map chords to colors, 3 main _features_ have been used: **_dissonance_**, **_tension_** and **_modality_**. Some [Matlab code](/matlab_code/chords_functions.m) code has been written in order to properly calculate those parameters. 
-#### 1) Chord dissonance:
+#### 1) Chord dissonance
 The **_chords dissonance_** measures the total dissonance of a chord. <br />
 The dissonance calculation is based on a model of the perceived **_dissonance_** of two frequencies: the human hear is composed of many different biological **_band pass filters_** also called **_critical bands_**, when two frequencies are too close, the brain is not capable of recognizing them very well, this leads to a not pleasant feeling when two notes or frequencies are played together.<br /> For more details look here: [dissonance explained](http://hep.physics.indiana.edu/~rickv/consonance_and_dissonance.html)
 
@@ -82,7 +82,7 @@ Basically what we're doing is model the function in the picture, then we apply i
 
 **NB:** The mathematical functions in the paper can be misleading, we're considering all the unique couples of frequencies, not duplicates and not unisons (look at [dissonance function](/matlab_code/dissmeasure.m)).
 
-#### 2) Chord tension:
+#### 2) Chord tension
 Chord tension takes into account the behavior of triplets of frequencies. From the literature ([The Psychophysics of Harmony Perception:
 Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf)) it's known that triplets with equal interval distance (each note has the same interval with the previous) generate a **_tension_** feeling.<br /> 
 The behavior can be modeled with a **_gaussian function_**:
@@ -99,7 +99,7 @@ Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c954
 As mentioned above, the formulas in the paper are misleading: the tension is calculated iterating over all the unique triplets of frequencies  considering also harmonics if present (no unisons, no duplicates, no triplets with 2 equal frequencies and one different).
 
 
-#### 3) Chord modality:
+#### 3) Chord modality
 However, the chord tension is useful only to model the _tension_ of the chord, that can be reduced to a "_binary_" detection of equal or non equal simmetry of the intervals, this gives us informations only about the _resolved_ or _unresolved_ type of chords. <br /> 
 Therefore we need something to model the obvious difference between a **_Major_** and a **_Minor_** chord.
 
