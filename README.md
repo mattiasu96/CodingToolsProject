@@ -98,6 +98,10 @@ Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c954
 As mentioned above, the formulas in the paper are misleading: the tension is calculated iterating over all the unique triplets of frequencies  considering also harmonics if present (no unisons, no duplicates, no triplets with 2 equal frequencies and one different).
 
 
+#### 3) Chord modality:
+However, the chord tension is useful only to model the _tension_ of the chord, that can be reduced to a "_binary_" detection of equal or non equal simmetry of the intervals, this gives us informations only about the _resolved_ or _unresolved_ type of chords.
+Therefore we need something to model the obvious difference between a **_Major_** and a **_Minor_** chord.
+
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
 If i change the html file, i have to change also the address inserted: http://localhost:5000/Pad/index.html like this 
