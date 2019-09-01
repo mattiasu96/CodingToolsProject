@@ -107,7 +107,7 @@ As mentioned in [The Psychophysics of Harmony Perception:
 Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf) (even if there are some influences by the western music culture) it's undeniable that **_minor chords_** are perceived more as _sad_, _weak_ and _dark_, while **_major chords_** are perceived more as _happy_, _strong_ and _bright_. 
 
 In order to model this behavior, we use **_modality_**. This parameter is calculated following the formula in [The Psychophysics of Harmony Perception:
-Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf) iterating over all the triplets of frequencies (the same we did for the [chord tension](#Chord-tension), setting the parameter \\epsilon in order to have **_modality_**=1 for _Major chords_ in root position, and -1 for _minor chords_ in root position.
+Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf) iterating over all the triplets of frequencies (the same we did for the [chord tension](#Chord-tension)), setting the parameter epsilon in order to have **_modality_**=1 for _Major chords_ in root position, and **_modality_**=-1 for _minor chords_ in root position.
 
 
 ![Modality plot](https://www.researchgate.net/profile/Takashi_Fujisawa/publication/215646505/figure/fig4/AS:667681967575056@1536199194588/The-modality-curve-The-difference-in-the-magnitude-of-the-intervals-upper-minus-lower.ppm)
