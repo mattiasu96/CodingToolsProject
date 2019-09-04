@@ -130,6 +130,15 @@ As mentioned in the paper, we can compute the **HSL** values from the [Chord Par
 
 
 
+## Further development
+- Implement and test the software on a tablet, the starting idea was to use it with a touch screen tablet. It hasn't been implemented yet since i do not own a tablet. 
+
+- Solve the connection problems with the Arduino. Try to find a possible way to automatically connect the browser to the arduino input data without running a local server. If not possible, migrate the whole application to a desktop one with it's own installer.
+
+- Include many different sounds (at the moment there's only a simple sinusoidal generator) and add the possibility to change them
+
+- Improve the hardware pad performance by adding more copper plates and move to a more powerful device that the arduino. 
+
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
