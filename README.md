@@ -109,8 +109,18 @@ Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c954
 In order to model this behavior, we use **_modality_**. This parameter is calculated following the formula in [The Psychophysics of Harmony Perception:
 Harmony is a Three-Tone Phenomenon](https://pdfs.semanticscholar.org/f05e/56c9548fa18c64efeed248742e3a6afb0c02.pdf) iterating over all the triplets of frequencies (the same we did for the [chord tension](#Chord-tension)), setting the parameter epsilon in order to have **_modality_**=1 for _Major chords_ in root position, and **_modality_**=-1 for _minor chords_ in root position.
 
-
 ![Modality plot](https://www.researchgate.net/profile/Takashi_Fujisawa/publication/215646505/figure/fig4/AS:667681967575056@1536199194588/The-modality-curve-The-difference-in-the-magnitude-of-the-intervals-upper-minus-lower.ppm)
+
+
+## Mapping **_parameters_** to colors
+As shown in [Mapping Model from Chords to Colors ](https://www.semanticscholar.org/paper/Mapping-model-from-chord-to-color-Shimotomai-Omori/22cf3150c25a8f9932c39e945c6bd098cd014b2d) the research (using statistical and regressive methods) shows how there's a possible linear mapping from the **_dissonance_**, **_tension_** and **_modality_** domain into the **HSL** domain (Hue,Saturation and Luminance).
+The **HSL** domain is represented like this: 
+
+
+![HSL plot](https://upload.wikimedia.org/wikipedia/commons/6/6b/HSL_color_solid_cylinder_saturation_gray.png)
+
+As mentioned in the paper, we can compute the **HSL** values from the [Chord Parameters](#Calculate-chords-_parameters_)
+
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
