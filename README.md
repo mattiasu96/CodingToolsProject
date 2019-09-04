@@ -119,7 +119,16 @@ The **HSL** domain is represented like this:
 
 ![HSL plot](https://upload.wikimedia.org/wikipedia/commons/6/6b/HSL_color_solid_cylinder_saturation_gray.png)
 
-As mentioned in the paper, we can compute the **HSL** values from the [Chord Parameters](#Calculate-chords-_parameters_)
+As mentioned in the paper, we can compute the **HSL** values from the [Chord Parameters](#calculate-chords-parameters) using the following formulas (where _D_,_T_ and _M_ stand for _dissonance_, _tension_ and _modality_):
+
+`Hue = 1.632+0.221M-0.159T-0.423D`
+
+`Saturation = 0.885+0.015M-0.042D`
+
+`Luminance = 0.475+0.018M-0.021T`
+
+
+
 
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
