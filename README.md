@@ -147,7 +147,7 @@ As mentioned in the paper, we can compute the **HSL** values from the [Chord Par
 
 ## Video demo 
 
-https://youtu.be/pHvnKKFbnjo
+[Video demo](https://youtu.be/pHvnKKFbnjo)
 
 NB2: the wobbling has a normalization based on a slider that goes from 1 to 200, so i have to convert those values into frequencies. Keep that in mind for developing and future development of the physical pad with arduino (i'll have to normalize the value on the X and Y axis).
 
