@@ -47,8 +47,6 @@ Here's the circuit schematic:
 ![Pad circuit](https://i.imgur.com/yh33sH6.png)
 
 
-**INSERIRE DESCRIZIONE PRECISA, FOTO E SCHEMATICS DEL CIRCUITO** 
-
 ## Getting started
 To run the project:
 1. **Download** the repository containing all the needed code. This should also include all the external Javascript libraries (you can still find a complete list of used libraries at the end of the `readme`).
