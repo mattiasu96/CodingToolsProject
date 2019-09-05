@@ -34,9 +34,12 @@ In the following image a C major chord has been selected:
 
 ### Hardware pad
 
-The software pad has been realized using an **Arduino** unit (inserire qui tipo di arduino). 
+The hardware pad consists of _9 capacitive sensors_ and an **_Arduino Nano_** board.<br />
+Each capacitive sensor is a squared copper plate, it creates a capacitance due to human body interaction. The capacitance is inversely proportional to the distance between the body and the sensor.<br /> To measure the capacitance the state of the sending pin changes repeatedly; the delay between the sending pin changing and the receiving pin changing is determined by an **RC time constant**, defined by **_R * C_**, where **R** is the value of the resistor and **C** is the capacitance at the receive pin. <br />
+In order to increase sensor sensitivity and the stability of the sensor values, a bigger copper plate has been placed under the sensors (insulated by a plastic material) and connected to ground. 
+Ground is connected to earth ground, in order to have the best ground reference and decrease disturbances. 
 
-The analog input of the **Arduino** board have been connected to 9 copper plates. Each plates works as an **_electro-magnetic_** field generator, when the hand is moved over the plates, it "_disturbs_" the magnetic field, so it's possible to calculate the hand position by the amount of _disturbance_ that each plate "_feels_". 
+![Pad demo](https://i.imgur.com/f8YGcu2.gif)
 
 **INSERIRE DESCRIZIONE PRECISA, FOTO E SCHEMATICS DEL CIRCUITO** 
 
