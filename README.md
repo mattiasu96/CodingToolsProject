@@ -147,7 +147,8 @@ As mentioned in the paper, we can compute the **HSL** values from the [Chord Par
 
 ## Video demo 
 
-[Video demo](https://youtu.be/pHvnKKFbnjo)
+Click on the image for a video demonstration: 
+
 
 [![Watch the video](https://i.imgur.com/YzJm1zr.png)](https://youtu.be/pHvnKKFbnjo)
 
